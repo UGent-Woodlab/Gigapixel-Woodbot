@@ -1,0 +1,254 @@
+#
+# Created on Tue Sep 05 2023
+#
+# The MIT License (MIT)
+# Copyright (c) 2023 Simon Vansuyt UGent-Woodlab
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+# and associated documentation files (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all copies or substantial
+# portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+# TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+# TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#
+
+version: "3.2"
+services:
+  # linuxcnc:
+  #   image: machinekoder/linuxcnc-mk
+  #   container_name: linuxcnc-container
+  #   build:
+  #     context: "./linuxcnc-container/linuxcnc-mt-docker/docker"
+  #     dockerfile: "Dockerfile"
+  #   network_mode: "host"
+  #   privileged: true
+  #   environment:
+  #     - 'UID=${UID}'
+  #     - 'GID=${GID}'
+  #     - 'TZ=${TZ}'
+  #     - XDG_RUNTIME_DIR
+  #     - HOME
+  #     - USER
+  #     - TERM
+  #     - DISPLAY
+  #     - DBUS_SESSION_BUS_ADDRESS
+  #     - 'PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native'
+  #   volumes:
+  #     - '$HOME:$HOME'
+  #     - '$XDG_RUNTIME_DIR:$XDG_RUNTIME_DIR'
+  #     - '${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native'
+  #     - '/tmp/.X11-unix:/tmp/.X11-unix'
+  #     - '/var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket'
+  #     - '/opt/mycroft:/opt/mycroft'
+  #     - '$PWD:$PWD'
+  #     - "./mill-configs:/mill-configs"
+  #     - "./linuxcnc-container/linuxcnc-mt-docker/docker/py-websocket-server:/server"
+  #     - "./linuxcnc-container/start-container.sh:/start-container.sh"
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "nc -zv localhost 8765"]
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 5
+  #   command: "bash /start-container.sh"
+
+  image-document-store:
+    image: mongo:latest
+    container_name: image-document-store-container
+    environment:
+      - MONGO_INITDB_DATABASE=image-document-store
+    volumes:
+      - ./image-document-store/config:/docker-entrypoint-initdb.d:ro
+      - type: bind
+        source: ./image-document-store/
+        target: /image-document-store/db
+      - db_metadata:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 2s
+      timeout: 2s
+      retries: 5
+    network_mode: "host"
+    command: --replSet rs0 --bind_ip_all
+
+  acquisition-interface:
+    image: acquisition-image:latest
+    container_name: acquisition-container
+    # depends_on:
+    #   linuxcnc:
+    #     condition: service_healthy
+    build:
+      context: "./acquisition"
+      dockerfile: "Dockerfile"
+      args:
+        - USER=$USER
+        - UID=$UID
+        - GID=$GID
+        - PW=docker
+    network_mode: "host"
+    stop_signal: SIGINT
+    privileged: true
+    volumes:
+      - "/dev/bus/usb/:/dev/bus/usb"
+      - "/opt/cvb:/opt/cvb:ro"
+      - "/opt/cvb-14.00.002:/opt/cvb-14.00.002:ro"
+      - "/var/opt/cvb:/var/opt/cvb:ro"
+      - "/etc/opt/cvb:/etc/opt/cvb:ro"
+      - "/etc/profile.d/cvb_environment.sh:/etc/profile.d/cvb_environment.sh:ro"
+      - "/etc/ld.so.conf.d/libcvb.conf:/etc/ld.so.conf.d/libcvb.conf:ro"
+      - "/etc/sysctl.d/10-cvb.conf:/etc/sysctl.d/10-cvb.conf:ro"
+      - "/etc/sudoers.d/keep_cvb_vars:/etc/sudoers.d/keep_cvb_vars:ro"
+      - type: bind
+        source: ./acquisition/
+        target: /acquisition/
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/db"
+        target: "/image-document-store/db"
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/.gui_config"
+        target: "/image-document-store/db/.gui_config"
+    command: |
+        sh -c "/opt/cvb-14.00.002/bin/siLogSvc -s && \
+               /opt/cvb-14.00.002/bin/cvmgmtd && \
+               /opt/cvb-14.00.002/bin/siGevSvc -s && \
+               . /etc/profile.d/cvb_environment.sh && \
+               cd /acquisition/acquisition-py && \
+               python3 -m flask -A acquisition_rest.py run"
+
+  analyse-interface-efi:
+    image: analyse-image-efi:latest
+    container_name: analyse-container-EFI
+    build:
+      context: "./analyse/EFI"
+      dockerfile: "Dockerfile"
+    network_mode: "host"
+    stop_signal: SIGINT
+    volumes:
+      - type: bind
+        source: ./analyse/
+        target: /analyse/
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/db"
+        target: "/image-document-store/db"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    command: |
+      bash -c  "cd /analyse/EFI && python3 focus_stack_rest.py"
+
+  analyse-interface-mist:
+    image: analyse-interface-mist
+    container_name: analyse-container-mist
+    build:
+      context: "./analyse/MIST"
+      dockerfile: "Dockerfile"
+    network_mode: "host"
+    stop_signal: SIGINT
+    volumes:
+      - type: bind
+        source: ./analyse/
+        target: /analyse/
+      - type: bind
+        source: ~/Downloads/MIST
+        target: /opt/MIST
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/db"
+        target: "/image-document-store/db"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    tty: true
+    command: |
+      -c "python3 /analyse/MIST/stitch_rest.py"
+
+  analyse-interface-correction:
+    image: analyse-interface-correction
+    container_name: analyse-container-correction
+    build:
+      context: "./analyse/image_correction"
+      dockerfile: "Dockerfile"
+    network_mode: "host"
+    stop_signal: SIGINT
+    volumes:
+      - type: bind
+        source: ./analyse/
+        target: /analyse/
+      - type: bind
+        source: ~/Downloads/MIST
+        target: /opt/MIST
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/db"
+        target: "/image-document-store/db"
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/flatfields"
+        target: "/image-document-store/flatfields"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    tty: true
+    command: |
+      -c "python3 /analyse/image_correction/correction_rest.py"
+
+  analyse-interface:
+    image: analyse-image:latest
+    container_name: analyse-container
+    build:
+      context: "./analyse"
+      dockerfile: "Dockerfile"
+    network_mode: "host"
+    stop_signal: SIGINT
+    volumes:
+      - type: bind
+        source: ./analyse/
+        target: /analyse/
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/db"
+        target: "/image-document-store/db"
+      - type: bind
+        source: "/media/woodlab/Data HDD 1/.gui_config"
+        target: "/image-document-store/db/.gui_config"
+    depends_on:
+      - image-document-store
+      - analyse-interface-efi
+      - analyse-interface-correction
+      - analyse-interface-mist
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+    tty: true
+    command: |
+      bash -c  "cd /analyse/analyse-py && python3 analyse_rest.py"
+
+  gui:
+    image: nginx:latest
+    container_name: gui-webapplication-container
+    volumes:
+      - ./gui/www:/usr/share/nginx/html
+    # depends_on:
+    #   - acquisition-interface
+    #   - analyse-interface
+    ports:
+      - "8000:80"
+    command: nginx -g 'daemon off;'
+
+volumes:
+  db_metadata:
+    external: true

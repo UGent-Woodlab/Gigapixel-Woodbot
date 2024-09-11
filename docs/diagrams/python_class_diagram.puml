@@ -1,0 +1,34 @@
+@startuml
+abstract Camera {
+    + openCamera()
+    + closeCamera()
+    + takePicture(path: str)
+}
+
+class GenieCamera {
+    + openCamera()
+    + closeCamera()
+    + takePicture(path: str)
+}
+
+class Laser {
+    + connect()
+    + getMesure()
+}
+
+class CNC {
+    + toggleJOG()
+    + sendMDI(gcode: str)
+}
+
+class Acquisition {
+    + moveCNC(cord: (int, int, int))
+    + takeZPictures(cord: (int, int), step: int)
+    + scanHeightMap(cord1: (int, int), cord2: (int, int))
+}
+
+GenieCamera -|> Camera
+Camera o-- Acquisition
+Laser o-- Acquisition
+CNC o-- Acquisition
+@enduml

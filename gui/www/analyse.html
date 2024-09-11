@@ -1,0 +1,179 @@
+<!--
+ Created on Tue Sep 15 2023
+
+ The MIT License (MIT)
+ Copyright (c) 2023 Simon Vansuyt UGent-Woodlab
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ and associated documentation files (the "Software"), to deal in the Software without restriction,
+ including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial
+ portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>woodbot</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/css/Articles-Badges-images.css">
+    <link rel="stylesheet" href="assets/css/css/Navbar-Right-Links-Dark-icons.css">
+    <link rel="stylesheet" href="assets/css/css/cdnjs.cloudflare.com_ajax_libs_font-awesome_4.7.0_css_font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        .inline-icon {
+            display: inline-flex;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <nav class="navbar navbar-light navbar-expand-md bg-light py-3">
+                        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="text-center">Gigapixel Woodbot 🤖</span></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+                    </nav>
+                    <header></header>
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs card-header-tabs">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Control</a></li>
+                            <li class="nav-item"><a class="nav-link" href="acquisition.html">Acquisition</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">Analyse</a></li>
+                            <li class="nav-item"><a class="nav-link" href="calibration.html">Calibration</a></li>
+                            <li class="nav-item"></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gy-3 d-grid">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Analyse Tasks Overview🔬</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row" data-bs-toggle="tooltip" data-bss-tooltip>
+                                            <div class="col my-auto justify-content-xxl-end">
+                                                <div class="row gy-1 d-grid align-items-xxl-start">
+                                                    <div class="col">
+                                                        <ul class="list-group" style="margin-bottom: 5px;">
+                                                            <li class="list-group-item">
+                                                                <div class="row d-flex d-xxl-flex flex-grow-1 justify-content-center align-items-center justify-content-xxl-center align-items-xxl-center">
+                                                                    <div class="col-3 d-flex d-xxl-flex flex-grow-1 justify-content-center align-items-center align-self-stretch justify-content-xxl-center align-items-xxl-center" style="border-right: 1.5px solid var(--bs-gray-300);">
+                                                                        <h5 class="d-flex d-lg-flex flex-grow-1 justify-content-center align-items-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" style="margin-bottom: 0;">Job name</h5>
+                                                                    </div>
+                                                                    <div class="col-1 d-inline-flex d-xxl-flex flex-grow-1 flex-shrink-1 justify-content-center align-items-center align-self-center justify-content-xxl-center align-items-xxl-center" style="border-right: 1.5px solid var(--bs-gray-300);">
+                                                                        <h5 class="d-flex d-lg-flex justify-content-center align-items-center justify-content-lg-center align-items-lg-center" style="margin-bottom: 0;">Stacked 🖼<br /></h5>
+                                                                    </div>
+                                                                    <div class="col-1 d-inline-flex d-xxl-flex flex-grow-1 flex-shrink-1 justify-content-center align-items-center align-self-center justify-content-xxl-center align-items-xxl-center" style="border-right: 1.5px solid var(--bs-gray-300);">
+                                                                        <h5 class="d-flex d-lg-flex justify-content-center align-items-center justify-content-lg-center align-items-lg-center" style="margin-bottom: 0;">Lens Correction<br /></h5>
+                                                                    </div>
+                                                                    <div class="col-1 d-inline-flex d-xxl-flex flex-grow-1 flex-shrink-1 justify-content-center align-items-center align-self-center justify-content-xxl-center align-items-xxl-center" style="border-right: 1.5px solid var(--bs-gray-300);">
+                                                                        <h5 class="d-flex d-lg-flex justify-content-center align-items-center justify-content-lg-center align-items-lg-center" style="margin-bottom: 0;">Stitched <span style="color: rgb(26, 13, 171);">🪡</span><br /></h5>
+                                                                    </div>
+                                                                    <div class="col-1 d-inline-flex d-xxl-flex flex-grow-1 flex-shrink-1 justify-content-center align-items-center align-self-center justify-content-xxl-center align-items-xxl-center" style="border-bottom: 1px none var(--bs-list-group-action-active-bg);">
+                                                                        <h5 class="d-flex d-lg-flex justify-content-center align-items-center justify-content-lg-center align-items-lg-center" style="margin-bottom: 0;">Option</h5>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="list-group" id="images_list">
+                                                            <li class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col d-flex d-lg-flex flex-grow-1 justify-content-center align-items-center align-content-stretch align-self-stretch justify-content-lg-center justify-content-xxl-center align-items-xxl-center">
+                                                                        <div class="spinner-border text-primary" role="status">
+                                                                            <span class="sr-only">Loading...</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <span style="text-align: center;">Loading...</span>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="text-center py-4">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-lg-3">
+                                <div class="col">
+                                    <p class="text-muted my-2">Copyright © 2023 Ghent University</p>
+                                </div>
+                                <div class="col"><img src="assets/img/logo-woodlab.jpg" width="100px" /></div>
+                                <div class="col">
+                                    <ul class="list-inline my-2">
+                                        <li class="list-inline-item list-inline-item"><a class="link-secondary" href="#">Privacy Policy</a></li>
+                                        <li class="list-inline-item list-inline-item"><a class="link-secondary" href="#">Terms of Use</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div role="dialog" tabindex="-2" class="modal fade show" id="modal-1" style="display: block;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title">Settings of </h4>
+                  <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <h3><strong>Acquisition Info:</strong></h4>
+                  <h3><strong>Stitching settings:</strong></h4>
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr><th>Settting</th><th>Current value</th><th>Set new value</th></tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td><lt-highlighter contenteditable="false" style="display: none;" data-lt-linked="0"><lt-div spellcheck="false" class="lt-highlighter__wrapper" style="width: 268.938px !important; height: 24px !important; transform: none !important; transform-origin: 134.469px 12px !important; zoom: 1 !important; margin-top: 8px !important;"><lt-div class="lt-highlighter__scroll-element" style="top: 0px !important; left: 0px !important; width: 268.938px !important; height: 24px !important;"></lt-div></lt-div></lt-highlighter><p class="d-grid" style="margin-top: 8px;margin-bottom: auto;">Percentage overlap:</p></td>
+                                  <td class="text-center"><lt-highlighter contenteditable="false" style="display: none;" data-lt-linked="0"><lt-div spellcheck="false" class="lt-highlighter__wrapper" style="width: 192.938px !important; height: 24px !important; transform: none !important; transform-origin: 96.4688px 12px !important; zoom: 1 !important; margin-top: 8px !important;"><lt-div class="lt-highlighter__scroll-element" style="top: 0px !important; left: 0px !important; width: 192.938px !important; height: 24px !important;"></lt-div></lt-div></lt-highlighter><p class="d-grid" style="margin-top: 8px;margin-bottom: auto;">10</p></td>
+                                  <td class="text-end" style="max-width: 149px;"><div class="input-group"><input type="text" class="form-control"><button class="btn btn-primary" type="button">Update</button></div></td>
+                              </tr>
+                              <tr>
+                                  <td><lt-highlighter contenteditable="false" style="display: none;" data-lt-linked="0"><lt-div spellcheck="false" class="lt-highlighter__wrapper" style="width: 268.938px !important; height: 24px !important; transform: none !important; transform-origin: 134.469px 12px !important; zoom: 1 !important; margin-top: 8px !important;"><lt-div class="lt-highlighter__scroll-element" style="top: 0px !important; left: 0px !important; width: 268.938px !important; height: 24px !important;"></lt-div></lt-div></lt-highlighter><p class="d-grid" style="margin-top: 8px;margin-bottom: auto;">Blending:</p></td>
+                                  <td class="text-center"><lt-highlighter contenteditable="false" style="display: none;" data-lt-linked="0"><lt-div spellcheck="false" class="lt-highlighter__wrapper" style="width: 192.938px !important; height: 24px !important; transform: none !important; transform-origin: 96.4688px 12px !important; zoom: 1 !important; margin-top: 8px !important;"><lt-div class="lt-highlighter__scroll-element" style="top: 0px !important; left: 0px !important; width: 192.938px !important; height: 24px !important;"></lt-div></lt-div></lt-highlighter><p class="d-grid" style="margin-top: 8px;margin-bottom: auto;">None</p></td>
+                                  <td class="text-end" style="max-width: 149px;"><div class="input-group"><select class="form-select"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select><button class="btn btn-primary" type="button">Update</button></div></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Delete</button>
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Restart Stacking</button>
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Restart Correction</button>
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Restart Stitching</button>
+                    <button class="btn btn-primary" type="button">Done</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/analyse_rest.js"></script>
+</body>
+
+</html>

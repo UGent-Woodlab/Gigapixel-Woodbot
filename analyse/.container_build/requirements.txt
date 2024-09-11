@@ -1,0 +1,8 @@
+cupy_cuda11x
+largestinteriorrectangle
+matplotlib
+numpy
+pymongo
+requests
+flask
+flask-cors

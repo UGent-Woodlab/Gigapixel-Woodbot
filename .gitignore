@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+.jukit/
+*/.jukit/
+**/.jukit/
+*.pyc
+*.pyo
+z_stack_test/*
+z-stack-test/*
+*.swp
+linuxcnc-container/linuxcnc-mt-docker/
+acquisition/.container_build/cvb-14.00.002-ubu2004-x86_64.zip
+image-document-store/db/*
+*.deb
+analyse/lib/*
+analyse/target/*

@@ -1,0 +1,117 @@
+' English
+' @startuml
+' title CNC Server Sequence Diagram
+
+' participant Acquisition_Client
+' participant CNCServer
+' participant LinuxCNC
+
+' Acquisition_Client -> CNCServer: Connect
+' activate CNCServer
+' CNCServer -> Acquisition_Client: OK
+
+' Acquisition_Client -> CNCServer: Send Message
+' activate CNCServer
+' CNCServer -> CNCServer: Handle Message in Thread
+' activate CNCServer
+' CNCServer -> CNCServer: Parse JSON Data
+' CNCServer -> CNCServer: Check Message Status
+' alt Status is "connect"
+'     CNCServer -> LinuxCNC: Poll
+'     LinuxCNC --> CNCServer: Status Information
+'     CNCServer -> CNCServer: Check if OK for MDI
+'     LinuxCNC -> LinuxCNC: Set Mode to MDI
+'     LinuxCNC -> LinuxCNC: Wait for Mode Switch
+'     LinuxCNC --> CNCServer: OK
+'     CNCServer -> Acquisition_Client: CNC OK
+' else Status is "gcode"
+'     CNCServer -> LinuxCNC: Execute G-Code
+'     activate LinuxCNC
+'     alt G-Code is a move command
+'         ' LinuxCNC -> LinuxCNC: Wait for Complete
+'         loop until LinuxCNC completed task
+'         CNCServer -> LinuxCNC: Poll
+'         LinuxCNC --> CNCServer: Status Information
+'         CNCServer -> Acquisition_Client: Send Coordinates with Timestamp and State
+'         end
+'     else G-Code is not a move command
+'         CNCServer -> LinuxCNC: Poll
+'         LinuxCNC --> CNCServer: Status Information
+'     end
+'     LinuxCNC --> CNCServer: Completed Task
+'     deactivate LinuxCNC
+'     CNCServer -> Acquisition_Client: Send Coordinates with Timestamp and State
+' else Status is "fetch_info"
+'     CNCServer -> LinuxCNC: Poll
+'     LinuxCNC --> CNCServer: Status Information
+'     CNCServer -> Acquisition_Client: Send Coordinates with Timestamp and State
+' end
+
+' CNCServer --> Acquisition_Client: Message Handled
+' deactivate CNCServer
+
+' Acquisition_Client -> CNCServer: Disconnect
+' activate CNCServer
+' CNCServer --> Acquisition_Client: Disconnected
+' deactivate CNCServer
+' @enduml
+
+
+' Dutch
+@startuml
+title CNC Server Sequentiediagram
+
+participant Acquisition_Client
+participant CNCServer
+participant LinuxCNC
+
+Acquisition_Client -> CNCServer: Verbinden
+activate CNCServer
+CNCServer -> Acquisition_Client: OK
+
+Acquisition_Client -> CNCServer: Bericht verzenden
+activate CNCServer
+CNCServer -> CNCServer: Bericht verwerken in thread
+activate CNCServer
+CNCServer -> CNCServer: JSON-gegevens parsen
+CNCServer -> CNCServer: Berichtstatus controleren
+alt Status is "connect"
+    CNCServer -> LinuxCNC: Poll
+    LinuxCNC --> CNCServer: Statusinformatie
+    CNCServer -> CNCServer: Controleren of OK voor MDI
+    LinuxCNC -> LinuxCNC: Modus instellen op MDI
+    LinuxCNC -> LinuxCNC: Wachten op moduswijziging
+    LinuxCNC --> CNCServer: OK
+    CNCServer -> Acquisition_Client: CNC OK
+else Status is "gcode"
+    CNCServer -> LinuxCNC: G-code uitvoeren
+    activate LinuxCNC
+    alt G-code is een bewegingsopdracht
+        ' LinuxCNC -> LinuxCNC: Wachten tot voltooid
+        loop tot LinuxCNC taak voltooid is
+        CNCServer -> LinuxCNC: Poll
+        LinuxCNC --> CNCServer: Statusinformatie
+        CNCServer -> Acquisition_Client: Coördinaten met tijdstempel en status verzenden
+        end
+    else G-code is geen bewegingsopdracht
+        CNCServer -> LinuxCNC: Poll
+        LinuxCNC --> CNCServer: Statusinformatie
+    end
+    LinuxCNC --> CNCServer: Taak voltooid
+    deactivate LinuxCNC
+    CNCServer -> Acquisition_Client: Coördinaten met tijdstempel en status verzenden
+else Status is "fetch_info"
+    CNCServer -> LinuxCNC: Poll
+    LinuxCNC --> CNCServer: Statusinformatie
+    CNCServer -> Acquisition_Client: Coördinaten met tijdstempel en status verzenden
+end
+
+CNCServer --> Acquisition_Client: Bericht verwerkt
+deactivate CNCServer
+
+Acquisition_Client -> CNCServer: Ontkoppelen
+activate CNCServer
+CNCServer --> Acquisition_Client: Ontkoppeld
+deactivate CNCServer
+@enduml
+

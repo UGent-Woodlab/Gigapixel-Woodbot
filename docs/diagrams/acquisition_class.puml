@@ -1,0 +1,65 @@
+@startuml
+
+class Acquisition {
+    - frame: np.ndarray
+    + __init__()
+    + get_frame() -> np.ndarray
+}
+
+class Laser {
+    - LASER_IP: str
+    - UDP_PORT: int
+    - s: socket
+    - m: namedtuple
+    - h_measure: DataFrame
+    - thread_measure: Thread
+    - thread_history: Thread
+    - stop_thread: bool
+    + __init__(LASER_IP: str, UDP_PORT: int)
+    + __del__()
+    + connect(): bool
+    + add_point_history(d: float, timestamp: float)
+    + get_measure()
+}
+
+class GenICam {
+    - ip: str
+    - cam: pylon.InstantCamera
+    + __init__(ip: str)
+    + __del__()
+    + connect() -> bool
+    + get_image() -> np.ndarray
+}
+
+class CNCServer {
+    - IP: str
+    - port: int
+    - s: socket
+    - stop_thread: bool
+    + __init__(IP: str, port: int)
+    + __del__()
+    + connect() -> bool
+    + get_state() -> str
+    + set_state(state: str)
+}
+
+class ImageToStore {
+    - img: np.ndarray
+    - path: str
+    + __init__(img: np.ndarray, path: str)
+    + save()
+}
+
+class HeightMap {
+    - data: np.ndarray
+    + __init__()
+    + set_height(x: int, y: int, z: float)
+    + get_height(x: int, y: int) -> float
+}
+
+Acquisition -> ImageToStore
+ImageToStore -> HeightMap
+Laser -> Acquisition
+GenICam -> Acquisition
+
+@enduml

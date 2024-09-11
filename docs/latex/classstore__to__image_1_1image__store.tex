@@ -1,0 +1,58 @@
+\hypertarget{classstore__to__image_1_1image__store}{}\doxysection{store\+\_\+to\+\_\+image.\+image\+\_\+store Class Reference}
+\label{classstore__to__image_1_1image__store}\index{store\_to\_image.image\_store@{store\_to\_image.image\_store}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_a9da93772c0f650fd0db768ea47490579}\label{classstore__to__image_1_1image__store_a9da93772c0f650fd0db768ea47490579}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, conn\+\_\+str)
+\item 
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_af8d8e47401fb03dcde97f4f6f8f70a95}\label{classstore__to__image_1_1image__store_af8d8e47401fb03dcde97f4f6f8f70a95}} 
+def {\bfseries find\+\_\+images\+\_\+by\+\_\+date} (self, date\+\_\+str)
+\item 
+def \mbox{\hyperlink{classstore__to__image_1_1image__store_afe158ada5b6c4a07a22bf98213724b9e}{export\+\_\+to\+\_\+json}} (self, date\+\_\+str)
+\item 
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_a0634f565340c841ba2d6d14507dd5839}\label{classstore__to__image_1_1image__store_a0634f565340c841ba2d6d14507dd5839}} 
+def {\bfseries update\+\_\+images} (self, new\+\_\+images)
+\item 
+def \mbox{\hyperlink{classstore__to__image_1_1image__store_abc07c69eaf282d966d26283005cc26fd}{drop\+\_\+db}} (self)
+\item 
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_ada22289254a3de8d4c0c0df3a44d6fc3}\label{classstore__to__image_1_1image__store_ada22289254a3de8d4c0c0df3a44d6fc3}} 
+def {\bfseries delete\+\_\+image\+\_\+from\+\_\+db} (self, date, name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_a2292b345062ca88e2a56443b6e0dfba5}\label{classstore__to__image_1_1image__store_a2292b345062ca88e2a56443b6e0dfba5}} 
+{\bfseries dbclient}
+\item 
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_a69068ee7ebb337acd62f9a6a4821b107}\label{classstore__to__image_1_1image__store_a69068ee7ebb337acd62f9a6a4821b107}} 
+{\bfseries db}
+\item 
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_ae6803cd67e8827ec66fd1f3aaf905ff6}\label{classstore__to__image_1_1image__store_ae6803cd67e8827ec66fd1f3aaf905ff6}} 
+{\bfseries change\+\_\+stream}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstore__to__image_1_1image__store_abc07c69eaf282d966d26283005cc26fd}\label{classstore__to__image_1_1image__store_abc07c69eaf282d966d26283005cc26fd}} 
+\index{store\_to\_image.image\_store@{store\_to\_image.image\_store}!drop\_db@{drop\_db}}
+\index{drop\_db@{drop\_db}!store\_to\_image.image\_store@{store\_to\_image.image\_store}}
+\doxysubsubsection{\texorpdfstring{drop\_db()}{drop\_db()}}
+{\footnotesize\ttfamily def store\+\_\+to\+\_\+image.\+image\+\_\+store.\+drop\+\_\+db (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}function clears the database
+only for development reasons
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classstore__to__image_1_1image__store_afe158ada5b6c4a07a22bf98213724b9e}\label{classstore__to__image_1_1image__store_afe158ada5b6c4a07a22bf98213724b9e}} 
+\index{store\_to\_image.image\_store@{store\_to\_image.image\_store}!export\_to\_json@{export\_to\_json}}
+\index{export\_to\_json@{export\_to\_json}!store\_to\_image.image\_store@{store\_to\_image.image\_store}}
+\doxysubsubsection{\texorpdfstring{export\_to\_json()}{export\_to\_json()}}
+{\footnotesize\ttfamily def store\+\_\+to\+\_\+image.\+image\+\_\+store.\+export\+\_\+to\+\_\+json (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{date\+\_\+str }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Export the last stored image to json file
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+analyse/analyse-\/py/db/store\+\_\+to\+\_\+image.\+py\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+# DALSA Environment Variables
+export GENICAM_ROOT="/opt/genicam_v3_0"
+export GENICAM_ROOT_V3_0="/opt/genicam_v3_0"
+export GENICAM_CACHE="/var/opt/genicam/xml/cache"
+export GENICAM_CACHE_V3_0="/var/opt/genicam/xml/cache"
+export GENICAM_LOG_CONFIG="/opt/genicam_v3_0/log/config-unix"
+export GENICAM_LOG_CONFIG_V3_0="/opt/genicam_v3_0/log/config-unix"
+export GIGEV_DIR="/usr/dalsa/GigeV"
+export GIGEV_XML_DOWNLOAD="/usr/dalsa/GigeV"

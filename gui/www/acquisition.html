@@ -1,0 +1,426 @@
+<!--
+ Created on Tue Sep 15 2023
+
+ The MIT License (MIT)
+ Copyright (c) 2023 Simon Vansuyt UGent-Woodlab
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ and associated documentation files (the "Software"), to deal in the Software without restriction,
+ including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial
+ portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>woodbot</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/css/Articles-Badges-images.css">
+    <link rel="stylesheet" href="assets/css/css/Navbar-Right-Links-Dark-icons.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .inline-icon {
+            display: inline-flex;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <nav class="navbar navbar-light navbar-expand-md bg-light py-3">
+                        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="text-center">Gigapixel Woodbot 🤖</span></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+                    </nav>
+                    <header></header>
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs card-header-tabs card-header-tabs">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Control</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="acquisition.html">Acquisition</a></li>
+                            <li class="nav-item"><a class="nav-link" href="analyse.html">Analyse</a></li>
+                            <li class="nav-item"><a class="nav-link" href="calibration.html">Calibration</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gy-3 d-grid">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0" title="this cerate a ...">Acquisition Jobs </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row" data-bs-toggle="tooltip" data-bss-tooltip>
+                                            <div class="col-auto text-start">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="container">
+                                                            <div class="row d-xl-flex flex-fill justify-content-center" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 18px;">
+                                                                <div class="col-lg text-center order-first">
+                                                                    <h5 class="text-start">Current surface</h5>
+                                                                </div>
+                                                                <div class="col-md-auto text-center order-last">
+                                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#big-view-current-scan" style="margin-bottom: 6px;">
+                                                                        <i class="inline-icon material-icons">&#xe5d0;</i>
+                                                                    </button>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-1 font-monospace d-flex d-xl-flex align-items-center align-items-xl-center" style="font-weight: bold;"><span><strong>X</strong></span></div>
+                                                                <div class="col"><span class="font-monospace text-center d-inline-flex d-xl-flex justify-content-center justify-content-xl-center" style="margin-bottom: 8px;font-weight: bold;"><strong>Y</strong></span><canvas id="row-scan-canvas-sm" width="240px" height="400px" style="border: 1px solid black;background-image: url(http://127.0.0.1:5000/acquisition/base_scan.png);background-size: cover;background-repeat: no-repeat;background-position: top -1px left -1px;background-size: 100%;"></canvas></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col my-auto justify-content-xxl-end">
+                                                <div class="row gy-1 d-grid">
+                                                    <div class="col">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 6px;">
+                                                                    <div class="col text-center order-first">
+                                                                        <h5 class="text-start">Make Base Scan</h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;margin-bottom: 0;">
+                                                                    <div class="col">
+                                                                        <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Base scan will be taken with the laser at this Z position.">work area:</span><input id="base_scan_work_area_input" class="form-control form-control form-control" type="number" placeholder="100" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Base scan will be taken with the laser at this Z position.">%</span><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Base scan will be taken with the laser at this Z position.">Z:</span><input id="base_scan_z_input" class="form-control form-control form-control" type="number" placeholder="40" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Base scan will be taken with the laser at this Z position.">Step:</span><input id="base_scan_step_input" class="form-control form-control form-control" type="number" placeholder="50" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span></div>
+                                                                        <div class="input-group"></div>
+                                                                    </div>
+                                                                    <div class="col d-flex d-xxl-flex justify-content-end justify-content-xxl-end"><button id="base_scan_button" class="btn btn-primary" type="button">Create a base scan</button></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 6px;">
+                                                                    <div class="col text-center">
+                                                                        <h5 class="text-start">Start Acquisition Job<br /></h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;margin-bottom: 8px;">
+                                                                    <div class="col" style="margin-bottom: -6px;">
+                                                                        <h6>Scan Area:</h6>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="input-group"><span class="input-group-text input-group-text input-group-text">Coordinate 1</span><span class="input-group-text input-group-text input-group-text">X:</span><input id="x_cord1" class="form-control form-control form-control cord" type="number" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span><span class="input-group-text input-group-text input-group-text">Y:</span><input id="y_cord1" class="form-control form-control form-control cord" type="number" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span></div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="input-group"><span class="input-group-text input-group-text input-group-text">Coordinate 2</span><span class="input-group-text input-group-text input-group-text">X:</span><input id="x_cord2" class="form-control form-control form-control cord" type="number" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span><span class="input-group-text input-group-text input-group-text">Y:</span><input id="y_cord2" class="form-control form-control form-control cord" type="number" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;margin-bottom: 8px;">
+                                                                    <div class="col" style="margin-bottom: -6px;">
+                                                                        <h6>Camera options:</h6>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-text">Camera:</span>
+                                                                            <span id="camera_name_span" class="text-right font-weight-bold input-group-text flex-grow-1">Teledyne DALSA Nano XL</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <ul class="nav nav-tabs" role="tablist">
+                                                                        <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1">Object</a></li>
+                                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2">Drill samples</a></li>
+                                                                        <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3">Object fixed Z</a></li>
+                                                                    </ul>
+                                                                    <div class="tab-content">
+                                                                        <div id="tab-1" class="tab-pane active" role="tabpanel">
+                                                                            <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;">
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Acquisition Name:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text">Name:</span><input id="name_input_object" class="form-control form-control form-control" type="text" placeholder="pterocarpus soyauxii" /></div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Heightmap Properties:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Height scan will be taken with the laser at this Z position.">Z:</span><input id="height_z_object" class="form-control form-control form-control" type="number" placeholder="40" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Step in lines along x-axis in heighmap">Step:</span><input id="height_step_object" class="form-control form-control form-control" type="number" placeholder="4.6" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span></div>
+                                                                                    <div class="input-group"></div>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Reject all the data points lower that given threshold.">threshold:</span><input id="height_threshold_object" class="form-control form-control form-control" type="number" placeholder="5" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="For each picture that needs to be taken take in consideration the datapoints that will fall with margin out of context.">Margin:</span><input id="margin_object" class="form-control form-control form-control" type="number" placeholder="2" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span></div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Picture Properties:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Percentage of overlap between two pictures.">Picture Overlap:</span><input id="picture_overlap_object" class="form-control form-control form-control" type="number" placeholder="10" min="0" max="99.99" step="0.01" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">%</span></div>
+                                                                                </div>
+                                                                                <div class="col d-flex d-lg-flex justify-content-end">
+                                                                                    <button id="add_object_acq" class="btn btn-light" type="button" style="margin-top: 0; margin-right: 10px">Add job to file</button>
+                                                                                    <button id="start_object_acq" class="btn btn-primary" type="button" style="margin-top: 0;">Start Acquisition</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div id="tab-2" class="tab-pane" role="tabpanel">
+                                                                            <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;">
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Drill amount:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Height scan will be taken with the laser at this Z position.">Amount of drill samples:</span><input id="amount_of_drill_input" class="form-control form-control form-control" type="number" placeholder="1" style="text-align: right;" value="1" min="1" /></div>
+                                                                                    <div class="input-group"></div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Acquisition Names:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div id="names" class="row gy-2 d-xl-flex flex-column justify-content-xl-center">
+                                                                                        <div class="col">
+                                                                                            <div class="input-group"><span class="input-group-text input-group-text input-group-text">Sample 1:</span><input class="form-control form-control form-control" type="text" placeholder="MF_8N" /></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Heightmap Properties:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Height scan will be taken with the laser at this Z position.">Z:</span><input id="height_z_drill" class="form-control form-control form-control" type="number" placeholder="40" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">mm</span></div>
+                                                                                    <div class="input-group"></div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Picture Properties:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Percentage of overlap between two pictures.">Picture Overlap:</span><input id="picture_overlap_drill" class="form-control form-control form-control" type="number" placeholder="25" min="0" max="99.99" step="0.01" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">%</span></div>
+                                                                                </div>
+                                                                                <div class="col d-flex d-lg-flex justify-content-end">
+                                                                                    <button id="add_drill_acq_button" class="btn btn-light" type="button" style="margin-top: 0; margin-right: 10px">Add job to file</button>
+                                                                                    <button id="start_drill_acq_button" class="btn btn-primary" type="button" style="margin-top: 6px;">Start Acquisition</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div id="tab-3" class="tab-pane" role="tabpanel">
+                                                                            <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;">
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Acquisition Name:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text">Name:</span><input id="name_input_object_fixed" class="form-control form-control form-control" type="text" placeholder="pterocarpus soyauxii" /></div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Z Properties:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group">
+                                                                                        <span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Height of starting Z position.">
+                                                                                            Z start:
+                                                                                        </span>
+                                                                                        <input id="fixed_z_start" class="form-control form-control form-control" type="number" placeholder="40" style="text-align: right;" />
+                                                                                        <span class="input-group-text input-group-text input-group-text">mm</span>
+
+                                                                                        <span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Height of starting Z position.">
+                                                                                            amount:
+                                                                                        </span>
+                                                                                        <input id="fixed_z_amount" class="form-control form-control form-control" type="number" placeholder="40" style="text-align: right;" />
+
+                                                                                        <span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Step in lines along x-axis in heighmap">
+                                                                                            Step:
+                                                                                        </span>
+                                                                                        <input id="fixed_z_step" class="form-control form-control form-control" type="number" placeholder="4.6" style="text-align: right;" />
+                                                                                        <span class="input-group-text input-group-text input-group-text">mm</span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Picture Properties:</h6>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text input-group-text" data-bs-toggle="tooltip" data-bss-tooltip title="Percentage of overlap between two pictures.">Picture Overlap:</span><input id="picture_overlap_object_fixed" class="form-control form-control form-control" type="number" placeholder="10" min="0" max="99.99" step="0.01" style="text-align: right;" /><span class="input-group-text input-group-text input-group-text">%</span></div>
+                                                                                </div>
+                                                                                <div class="col d-flex d-lg-flex justify-content-end">
+                                                                                    <button id="add_object_fixed_acq" class="btn btn-light" type="button" style="margin-top: 0; margin-right: 10px">Add job to file</button>
+                                                                                    <button id="start_object_fixed_acq" class="btn btn-primary" type="button" style="margin-top: 0;">Start Acquisition</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 6px;">
+                                                                    <div class="col text-center order-first">
+                                                                        <h5 class="text-start">Export Acquisition Job To File</h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;margin-bottom: 6px;">
+                                                                    <div class="col" id="export-file-container">
+                                                                        <ul id="task-to-export" class="list-group">
+                                                                            <li class="list-group-item" style="text-align:center;">
+                                                                                <span style="color: var(--tw-prose-body); background-color: rgba(68,70,84,var(--tw-bg-opacity));">
+                                                                                    Here you can see all the jobs task to export.  
+                                                                                </span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col d-flex d-xxl-flex justify-content-end justify-content-xxl-end">
+                                                                    <button id="download_export_job_file_button" class="btn btn-primary" type="button" style="margin-top: 0;">
+                                                                        Download 
+                                                                        <span class="inline-icon material-icons">
+                                                                            download
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 6px;">
+                                                                    <div class="col text-center order-first">
+                                                                        <h5 class="text-start">Import Acquisition Job</h5>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;margin-bottom: 0;">
+                                                                    <div class="col">
+                                                                        <div class="file-drop-area">
+                                                                            <label class="form-label">Select or drop a acquisition file:</label>
+                                                                            <input id="acquisition-file-input" class="form-control file-input" type="file" multiple>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Acquisition Queue</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th class="border-1">Name</th>
+                                                        <th class="text-center border-1">Datetime</th>
+                                                        <th class="text-center border-1">X1</th>
+                                                        <th class="text-center border-1">Y1</th>
+                                                        <th class="text-center border-1">X2</th>
+                                                        <th class="text-center border-1">Y2</th>
+                                                        <th class="text-center border-1">Picture Overlap</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="acquisition_queue" class="border-1">
+                                                    <tr class="border rounded-0">
+                                                        <td class="text-center border rounded-0" colspan="7"><span><span style="color: var(--tw-prose-body); background-color: rgba(68,70,84,var(--tw-bg-opacity));">Currently, there are no ongoing acquisition jobs. Create a job to have it displayed on this table.</span></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="text-center py-4">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-lg-3">
+                                <div class="col">
+                                    <p class="text-muted my-2">Copyright © 2023 Ghent University</p>
+                                </div>
+                                <div class="col"><img src="assets/img/logo-woodlab.jpg" width="100px" /></div>
+                                <div class="col">
+                                    <ul class="list-inline my-2">
+                                        <li class="list-inline-item list-inline-item list-inline-item"><a class="link-secondary" href="#">Privacy Policy</a></li>
+                                        <li class="list-inline-item list-inline-item list-inline-item"><a class="link-secondary" href="#">Terms of Use</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Base scan big modal -->
+    <div class="modal fade" id="big-view-current-scan" tabindex="-2" role="dialog" aria-labelledby="big-view-current-scan" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="big-view-current-scan">Current Surface</h4>
+                <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <canvas id="row-scan-canvas-lg" width="480px" height="800px" style="border: 1px solid black;background-image: url(http://127.0.0.1:5000/acquisition/base_scan.png);background-size: cover;background-repeat: no-repeat;background-position: top -1px left -1px; background-size: 100%;"></canvas>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Import from file modal -->
+    <div class="modal fade" id="import-from-file" tabindex="-1" role="dialog" aria-labelledby="import-from-file" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="import-from-file-modal">File</h4>
+                <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <code id="file-import-code" class="prity"></code>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <button id="start-acq-from-file-button" type="button" class="btn btn-primary">Start acquistions</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/acquistion_rest.js"></script>
+    <script src="assets/js/draw_on_canvas.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+
+</html>

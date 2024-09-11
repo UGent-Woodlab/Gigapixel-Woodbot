@@ -1,0 +1,5 @@
+BaSiCPy
+Flask
+matplotlib
+numpy
+Pillow

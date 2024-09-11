@@ -1,0 +1,33 @@
+# Start with the Ubuntu 20.04 development image
+FROM ubuntu:20.04-devel
+
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y curl build-essential git cmake wget && \
+    apt-get install -y libfftw3-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install CUDA 9
+RUN curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_9.0.176-1_amd64.deb -o cuda.deb && \
+    dpkg -i cuda.deb && \
+    rm cuda.deb && \
+    apt-get update && \
+    apt-get install -y cuda-9-0
+
+# Install Fiji
+RUN mkdir /opt/fiji && \
+    curl -fsSL https://downloads.imagej.net/fiji/latest/fiji-linux64.zip -o /opt/fiji/fiji-linux64.zip && \
+    unzip /opt/fiji/fiji-linux64.zip -d /opt/fiji/ && \
+    rm /opt/fiji/fiji-linux64.zip && \
+    chmod -R 777 /opt/fiji/Fiji.app
+
+# Set environment variables
+ENV PATH="/usr/local/cuda-9.0/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:${LD_LIBRARY_PATH}"
+
+# Set working directory
+WORKDIR /app
+
+# Start a Bash shell by default
+CMD ["/bin/bash"]
+

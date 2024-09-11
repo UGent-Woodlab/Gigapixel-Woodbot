@@ -1,0 +1,148 @@
+\hypertarget{classHeightMap_1_1HeightMap}{}\doxysection{Height\+Map.\+Height\+Map Class Reference}
+\label{classHeightMap_1_1HeightMap}\index{HeightMap.HeightMap@{HeightMap.HeightMap}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classHeightMap_1_1HeightMap_aec9419d64a0d2eda629a8c09731a60f4}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, camera\+\_\+conf)
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_aa956bd4f45757c842f5990ca67450fd4}\label{classHeightMap_1_1HeightMap_aa956bd4f45757c842f5990ca67450fd4}} 
+def {\bfseries \+\_\+\+\_\+del\+\_\+\+\_\+} (self)
+\item 
+def \mbox{\hyperlink{classHeightMap_1_1HeightMap_adf71f4d297c9b839b81eccf32bdd074b}{add\+\_\+point}} (self, point)
+\item 
+def \mbox{\hyperlink{classHeightMap_1_1HeightMap_a50bb88ce3659e70f4e6bb76451105399}{add\+\_\+line}} (self, pos\+\_\+df, height\+\_\+df)
+\item 
+def \mbox{\hyperlink{classHeightMap_1_1HeightMap_adee79cf26eccb5be768ba0d57c26857c}{plot\+\_\+points}} (self, path=None)
+\item 
+def \mbox{\hyperlink{classHeightMap_1_1HeightMap_ad11ed06185dfaa8fae03a167f0ecf09b}{plot\+\_\+base\+\_\+scan}} (self, path=None)
+\item 
+def \mbox{\hyperlink{classHeightMap_1_1HeightMap_a9236a299e7d4508ec120da015f4f256c}{get\+\_\+picture\+\_\+positions}} (self, cord1, cord2, step\+\_\+x, step\+\_\+y, margin=0, threshold=5)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_ae3b0d027af93a9c2c8a9d31371c35c78}\label{classHeightMap_1_1HeightMap_ae3b0d027af93a9c2c8a9d31371c35c78}} 
+{\bfseries heights}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_aa6cb276893d17822c25008d3f0f18294}\label{classHeightMap_1_1HeightMap_aa6cb276893d17822c25008d3f0f18294}} 
+{\bfseries x\+\_\+diff}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_abd6140aa864ca2b68a01dfab4083ace9}\label{classHeightMap_1_1HeightMap_abd6140aa864ca2b68a01dfab4083ace9}} 
+{\bfseries y\+\_\+diff}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_aac02545a79df16c8f802874f406fb42a}\label{classHeightMap_1_1HeightMap_aac02545a79df16c8f802874f406fb42a}} 
+{\bfseries camera\+\_\+dim\+\_\+x}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_aafee8609ff18f8025de0f8ceecd08cf5}\label{classHeightMap_1_1HeightMap_aafee8609ff18f8025de0f8ceecd08cf5}} 
+{\bfseries camera\+\_\+dim\+\_\+y}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_ade1fc3a6979491090451d7dc35a13531}\label{classHeightMap_1_1HeightMap_ade1fc3a6979491090451d7dc35a13531}} 
+{\bfseries camera\+\_\+dof}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_a8f40d0b313df41dd73df5a033a000336}\label{classHeightMap_1_1HeightMap_a8f40d0b313df41dd73df5a033a000336}} 
+{\bfseries camera\+\_\+focus}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_ac7ef6eec66b60e8c1eeb6d9624526b65}\label{classHeightMap_1_1HeightMap_ac7ef6eec66b60e8c1eeb6d9624526b65}} 
+{\bfseries reference}
+\item 
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_abff3f6413bcc38e9cd196b6ca5dedfc3}\label{classHeightMap_1_1HeightMap_abff3f6413bcc38e9cd196b6ca5dedfc3}} 
+{\bfseries upper\+\_\+distance}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A class to represent a height map.
+
+Attributes:
+    heights (pandas.DataFrame): A pandas DataFrame to store the heights of the points.
+    x_diff (float): The x difference between the real world coordinates and the coordinates in the image.
+    y_diff (float): The y difference between the real world coordinates and the coordinates in the image.
+    camera_dim (float): Half of the camera width because later x+camera_dim/2 and x-camera_dim/2.
+    camera_dof (float): The depth of field of the camera.  camera_focus (float): The focal point of the camera.  reference (int): A reference value.
+Methods:
+    add_point(point): Adds a point to the heights DataFrame.
+    add_line(pos_df, height_df): Merges the position and height DataFrames.
+    plot_points(): Creates a 3D plot of the points.
+    get_picture_positions(cord1, cord2, step_x, step_y): Gets the positions and depths of the picture.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_aec9419d64a0d2eda629a8c09731a60f4}\label{classHeightMap_1_1HeightMap_aec9419d64a0d2eda629a8c09731a60f4}} 
+\index{HeightMap.HeightMap@{HeightMap.HeightMap}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!HeightMap.HeightMap@{HeightMap.HeightMap}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Height\+Map.\+Height\+Map.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{camera\+\_\+conf }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initializes a HeightMap object.
+
+Arguments:
+    diff (tuple, optional): The x and y differences between the real world coordinates and the coordinates in the image. Defaults to (0, 0).
+    camera_conf (dict, optional): The camera parameters. Defaults to {"CAMERA_WIDTH": 1, "CAMERA_DOF": 1, "CAMERA_FOCUS": 0}.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHeightMap_1_1HeightMap_a50bb88ce3659e70f4e6bb76451105399}\label{classHeightMap_1_1HeightMap_a50bb88ce3659e70f4e6bb76451105399}} 
+\index{HeightMap.HeightMap@{HeightMap.HeightMap}!add\_line@{add\_line}}
+\index{add\_line@{add\_line}!HeightMap.HeightMap@{HeightMap.HeightMap}}
+\doxysubsubsection{\texorpdfstring{add\_line()}{add\_line()}}
+{\footnotesize\ttfamily def Height\+Map.\+Height\+Map.\+add\+\_\+line (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos\+\_\+df,  }\item[{}]{height\+\_\+df }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Merges the position and height DataFrames.
+Then add the points to the height map
+
+Arguments:
+    pos_df (pandas.DataFrame): The position DataFrame.
+    height_df (pandas.DataFrame): The height DataFrame.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classHeightMap_1_1HeightMap_adf71f4d297c9b839b81eccf32bdd074b}\label{classHeightMap_1_1HeightMap_adf71f4d297c9b839b81eccf32bdd074b}} 
+\index{HeightMap.HeightMap@{HeightMap.HeightMap}!add\_point@{add\_point}}
+\index{add\_point@{add\_point}!HeightMap.HeightMap@{HeightMap.HeightMap}}
+\doxysubsubsection{\texorpdfstring{add\_point()}{add\_point()}}
+{\footnotesize\ttfamily def Height\+Map.\+Height\+Map.\+add\+\_\+point (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{point }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Adds a point to the heights DataFrame.
+
+Arguments:
+    point (tuple): The (x, y, d) coordinates of the point.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classHeightMap_1_1HeightMap_a9236a299e7d4508ec120da015f4f256c}\label{classHeightMap_1_1HeightMap_a9236a299e7d4508ec120da015f4f256c}} 
+\index{HeightMap.HeightMap@{HeightMap.HeightMap}!get\_picture\_positions@{get\_picture\_positions}}
+\index{get\_picture\_positions@{get\_picture\_positions}!HeightMap.HeightMap@{HeightMap.HeightMap}}
+\doxysubsubsection{\texorpdfstring{get\_picture\_positions()}{get\_picture\_positions()}}
+{\footnotesize\ttfamily def Height\+Map.\+Height\+Map.\+get\+\_\+picture\+\_\+positions (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cord1,  }\item[{}]{cord2,  }\item[{}]{step\+\_\+x,  }\item[{}]{step\+\_\+y,  }\item[{}]{margin = {\ttfamily 0},  }\item[{}]{threshold = {\ttfamily 5} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Generate a DataFrame containing the positions and depths of a picture.
+
+Arguments:
+    cord1 (tuple): A tuple of length 2 representing the (x, y) coordinates of the top-left corner of the image.
+    cord2 (tuple): A tuple of length 2 representing the (x, y) coordinates of the bottom-right corner of the image.
+    step_x (float): The step size between each point in the image along x-axis.
+    step_y (float): The step size between each point in the image along y-axis.
+    margin (float): Default 0, take all height points that lay outside the image by margin into acount
+    threshold (float): Default 5, make dicision boundry of all removed data poinst based on this threshold.
+Returns:
+    DataFrame: A DataFrame with columns "x", "y", "z_start", and "z_amount", where "x" and "y" are the coordinates of
+    the points in the image, "z_start" is the starting depth for the image, and "z_amount" is the number of depths for
+    the image.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classHeightMap_1_1HeightMap_ad11ed06185dfaa8fae03a167f0ecf09b}\label{classHeightMap_1_1HeightMap_ad11ed06185dfaa8fae03a167f0ecf09b}} 
+\index{HeightMap.HeightMap@{HeightMap.HeightMap}!plot\_base\_scan@{plot\_base\_scan}}
+\index{plot\_base\_scan@{plot\_base\_scan}!HeightMap.HeightMap@{HeightMap.HeightMap}}
+\doxysubsubsection{\texorpdfstring{plot\_base\_scan()}{plot\_base\_scan()}}
+{\footnotesize\ttfamily def Height\+Map.\+Height\+Map.\+plot\+\_\+base\+\_\+scan (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Creates a 2D height plot from base scan\end{DoxyVerb}
+ \mbox{\Hypertarget{classHeightMap_1_1HeightMap_adee79cf26eccb5be768ba0d57c26857c}\label{classHeightMap_1_1HeightMap_adee79cf26eccb5be768ba0d57c26857c}} 
+\index{HeightMap.HeightMap@{HeightMap.HeightMap}!plot\_points@{plot\_points}}
+\index{plot\_points@{plot\_points}!HeightMap.HeightMap@{HeightMap.HeightMap}}
+\doxysubsubsection{\texorpdfstring{plot\_points()}{plot\_points()}}
+{\footnotesize\ttfamily def Height\+Map.\+Height\+Map.\+plot\+\_\+points (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{path = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Creates a 3D plot of the points.\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+acquisition/acquisition-\/py/heightmap/Height\+Map.\+py\end{DoxyCompactItemize}

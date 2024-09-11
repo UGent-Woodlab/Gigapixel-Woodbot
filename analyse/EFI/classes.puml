@@ -1,0 +1,108 @@
+@startuml
+package "Python Analyse Container" <<Node>> {
+    class Analyse {
+        config: Object
+        dbpath: String
+        extension: String
+        focus_stack_url: String
+        correction_url: String
+        stitching_url: String
+        image_store: image_store
+        
+        __init__(path_to_config: String)
+        __del__()
+        start_observation()
+        start_by_date(date_str: String)
+        copy_to_fiji_file_format(sources: List[List[str]], images_path: String)
+        write_logging(file_name: String, line: String)
+        analyse_pipeline(new_images: images)
+        start_EFI(new_images: images): new_images
+        start_correction(new_images: images): new_images
+        calc_longest_seq(images_list: List[str]): List[str]
+        start_stitching(new_images: images)
+    }
+    class "images" as images {
+        date : str
+        name : str
+        focus_stacked : bool
+        increment : float
+        overlap : float
+        sources : numpy.ndarray
+        corrected_sources : numpy.ndarray
+        stacked_sources : numpy.ndarray
+        start_path : str
+        start_x : float
+        start_y : float
+        stitched : bool
+        __init__(dict_img: Dict)
+    }
+}
+
+
+package "EFI Container" <<Node>> {
+    class "EFI_REST" as EFI_REST{
+        app : Flask
+        thread_count : int
+        task_queue : Queue
+        threads : dict 
+        finished_jobs : list[dict]
+        execute_focus_stack()
+        focus_stack()
+        list_threads()
+    }
+}
+
+package "Correction Container" <<Node>> {
+    class "Correction_REST" as Correction_REST{
+        app : Flask
+        thread_count : int
+        task_queue : Queue
+        threads : dict
+        correction: FlatFieldCorrection
+        finished_jobs : list[dict]
+        execute_image_correction()
+        image_correction()
+        list_threads()
+    }
+    class FlatFieldCorrection {
+        path: str
+        crop: bool
+        left: float
+        right: float
+        top: float
+        bottom: float
+        size: int
+        black_image: Image
+        path: str
+        files: list[str]
+        image_array_r: np.ndarray
+        image_array_g: np.ndarray
+        image_array_b: np.ndarray
+        image_original: np.ndarray
+        basic_r: BaSiC
+        basic_g: BaSiC
+        basic_b: BaSiC
+        __init__(path: str, crop: bool)
+        create_basic(images: np.ndarray): BaSiC
+        show_the_fit(basic: BaSiC)
+        correct_images(path_tiles: str, path_output: str)
+        correct_one_image(image_path: str, output_path: str)
+        correct_one_folder(path_tiles: str, path_output: str)
+        __del__()
+    }
+    Correction_REST *-- FlatFieldCorrection
+}
+
+package "Stitching Container" <<Node>> {
+    class "MIST_REST" as MIST_REST{
+        app : Flask
+        thread_count : int
+        task_queue : Queue
+        threads : dict
+        finished_jobs : list[dict]
+        stitch()
+        list_threads()
+    }
+}
+
+@enduml

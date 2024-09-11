@@ -1,0 +1,265 @@
+<!--
+ Created on Tue Sep 15 2023
+
+ The MIT License (MIT)
+ Copyright (c) 2023 Simon Vansuyt UGent-Woodlab
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ and associated documentation files (the "Software"), to deal in the Software without restriction,
+ including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial
+ portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>woodbot</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/css/Articles-Badges-images.css">
+    <link rel="stylesheet" href="assets/css/css/Navbar-Right-Links-Dark-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <nav class="navbar navbar-light navbar-expand-md bg-light py-3">
+                        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="text-center">Gigapixel Woodbot 🤖</span></a><button class="navbar-toggler" data-bs-toggle="collapse"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+                    </nav>
+                    <header></header>
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs card-header-tabs">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Control</a></li>
+                            <li class="nav-item"><a class="nav-link" href="acquisition.html">Acquisition</a></li>
+                            <li class="nav-item"><a class="nav-link" href="analyse.html">Analyse</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="calibration.html">Calibration</a></li>
+                            <li class="nav-item"></li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gy-3 d-grid">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Calibration📐</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li class="nav-item" role="presentation"><a id="camera_name_a" class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1">Teledyne DALSA Nano XL</a></li>
+                                                <!-- <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2">...</a></li> -->
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div id="tab-1" class="tab-pane active" role="tabpanel" style="margin: 10px;">
+                                                    <div class="row" data-bs-toggle="tooltip" data-bss-tooltip>
+                                                        <div class="col-3 text-start">
+                                                            <div class="card" style="margin-bottom: 4px;">
+                                                                <div class="card-body">
+                                                                    <div class="container">
+                                                                        <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 18px;">
+                                                                            <div class="col text-center order-first">
+                                                                                <h5 class="text-start">Current Settings</h5>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="row">
+                                                                                    <div class="col-auto">
+                                                                                        <h4 class="text-start">X:</h4>
+                                                                                    </div>
+                                                                                    <div class="col text-end d-xxl-flex justify-content-xxl-end">
+                                                                                        <h4 id="x_position" class="text-end">? mm</h4>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row text-end">
+                                                                                    <div class="col-auto text-end">
+                                                                                        <h4 class="text-start">Y:</h4>
+                                                                                    </div>
+                                                                                    <div class="col text-end d-xxl-flex justify-content-xxl-end">
+                                                                                        <h4 id="y_position" class="text-end">? mm</h4>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="row text-end">
+                                                                                    <div class="col-auto text-end">
+                                                                                        <h4 class="text-start">Z:</h4>
+                                                                                    </div>
+                                                                                    <div class="col text-end d-xxl-flex justify-content-xxl-end">
+                                                                                        <h4 id="z_position" class="text-end">? mm</h4>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col my-auto justify-content-xxl-end">
+                                                            <div class="row gy-1 d-grid align-items-xxl-start" style="margin-top: 0;">
+                                                                <div class="col" style="margin-top: 0;">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 8px;">
+                                                                                <div class="col text-center order-first">
+                                                                                    <h5 class="text-start">Update Settings Manually<br /></h5>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="margin-top: 16px;">
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text">X laser to camera:</span><input id="x_laser_to_camera" class="form-control form-control" type="text" placeholder="10" /><span class="input-group-text input-group-text">mm</span><button id="x_laser_to_camera_button" class="btn btn-primary" type="button">Update</button></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="margin-top: 16px;">
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text">Y laser to camera:</span><input id="y_laser_to_camera" class="form-control form-control" type="text" placeholder="10" /><span class="input-group-text input-group-text">mm</span><button id="y_laser_to_camera_button" class="btn btn-primary" type="button">Update</button></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row" style="margin-top: 16px;">
+                                                                                <div class="col">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text">Z laser to camera:</span><input id="z_laser_to_camera" class="form-control form-control" type="text" placeholder="10" /><span class="input-group-text input-group-text">mm</span><button id="z_laser_to_camera_button" class="btn btn-primary" type="button">Update</button></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 8px;">
+                                                                                <div class="col text-center order-first">
+                                                                                    <h5 class="text-start">XY Calibration</h5>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;margin-bottom: 8px;">
+                                                                                <div class="col" style="margin-bottom: -6px;margin-top: 0px;">
+                                                                                    <h6>Swap laser position to camera position:</h6>
+                                                                                </div>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text">x:</span><input id="x_change_manual" class="form-control form-control" type="number" style="text-align: right;" placeholder="10" /><span class="input-group-text input-group-text">mm</span><span class="input-group-text input-group-text">y:</span><input id="y_change_manual" class="form-control form-control" type="number" style="text-align: right;" placeholder="10" /><span class="input-group-text input-group-text">mm</span><button id="update_xy_manual_button" class="btn btn-primary" type="button">Swap laser position to camera</button></div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Current view of camera after swap:</h6>
+                                                                                </div>
+                                                                                <div id="manual_xy_container" class="col text-center">
+                                                                                    <!-- <img id="manual_xy_img" src="" width="500px" /> -->
+                                                                                    <span>Current view of camera after swap is not taken jet. <br /> To update image this image fill in x and y change and press `Swap laser position to camera`.</span>
+                                                                                </div>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text">x:</span><span id="x-new" class="flex-fill input-group-text input-group-text" style="text-align: right;"></span><span class="input-group-text input-group-text">mm</span><span class="input-group-text input-group-text">y:</span><span id="y-new" class="text-end flex-fill input-group-text input-group-text" style="text-align: right;"></span><span class="input-group-text input-group-text">mm</span><button id="confirm_update" class="btn btn-primary" type="button">Update XY settings</button></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="card">
+                                                                        <div class="card-body">
+                                                                            <div class="row d-xl-flex flex-fill justify-content-between" style="border-bottom: 1.5px solid var(--bs-border-color);margin-bottom: 18px;">
+                                                                                <div class="col text-center order-first">
+                                                                                    <h5 class="text-start">Z Calibration</h5>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row gy-2 d-inline-flex d-lg-flex flex-column align-items-lg-start" style="padding-top: 0px;margin-top: 0px;margin-bottom: 8px;">
+                                                                                <div class="col" style="margin-bottom: -6px;margin-top: 0px;">
+                                                                                    <h6>Swap laser position to camera position:</h6>
+                                                                                </div>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="input-group">
+                                                                                        <span class="input-group-text input-group-text">Start:</span><input id="z_start" class="form-control form-control" type="number" style="text-align: right;" placeholder="10" /><span class="input-group-text input-group-text">mm</span>
+                                                                                        <span class="input-group-text input-group-text">Step:</span><input id="z_step" class="form-control form-control" type="number" style="text-align: right;" placeholder="10" /><span class="input-group-text input-group-text">mm</span>
+                                                                                        <span class="input-group-text input-group-text">Amount:</span><input id="amount" class="form-control form-control" type="number" style="text-align: right;" placeholder="10" />
+                                                                                        <button id="take_z_button" class="btn btn-primary" type="button">take Z stack</button></div>
+                                                                                </div>
+                                                                                <div class="col" style="margin-bottom: -6px;">
+                                                                                    <h6>Result stacked images:</h6>
+                                                                                </div>
+                                                                                <div class="col text-center d-md-flex justify-content-md-center">
+                                                                                    <div id="carousel-1" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false" data-bs-wrap="false" data-bs-keyboard="false" data-bs-interval="999999" style="width: 500px;">
+                                                                                        <div id="carousel-container" class="carousel-inner">
+                                                                                            <span>Current view of camera is not taken jet. <br /> To update image this image fill in the parameters and press `take Z stack`.</span>
+                                                                                            <!-- <div class="carousel-item active"> -->
+                                                                                                <!-- <h5>index 0 with z=56.43</h5><img class="w-100 d-block w-100" src="stacked/stack_67_236_85228873_0.jpg" width="500px" /> -->
+                                                                                            <!-- </div> -->
+                                                                                            <!-- <div class="carousel-item">
+                                                                                                <h5>index 1 with z=56.43</h5><img class="w-100 d-block w-100" src="stacked/stack_67_236_85228873_1.jpg" width="500px" />
+                                                                                            </div>
+                                                                                            <div class="carousel-item">
+                                                                                                <h5>index 2 with z=56.43</h5><img class="w-100 d-block w-100" src="stacked/stack_67_236_85228873_2.jpg" width="500px" />
+                                                                                            </div>
+                                                                                            <div class="carousel-item">
+                                                                                                <h5>index 3 with z=56.43</h5><img class="w-100 d-block w-100" src="stacked/stack_67_236_85228873_3.jpg" width="500px" />
+                                                                                            </div>
+                                                                                            <div class="carousel-item">
+                                                                                                <h5>index 4 with z=56.35</h5><img class="w-100 d-block w-100" src="stacked/stack_67_236_85228873_4.jpg" width="500px" />
+                                                                                            </div> -->
+                                                                                        </div>
+                                                                                        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span></span><span class="visually-hidden">Next</span></a></div>
+                                                                                        <!-- <ol class="carousel-indicators" id="carousel-ol">
+                                                                                            <li class="active" data-bs-target="#carousel-1" data-bs-slide-to="0"></li>
+                                                                                            <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+                                                                                            <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+                                                                                            <li data-bs-target="#carousel-1" data-bs-slide-to="3"></li>
+                                                                                            <li data-bs-target="#carousel-1" data-bs-slide-to="4"></li>
+                                                                                        </ol> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="input-group"><span class="input-group-text input-group-text">index:</span><select id="select_index_z" class="form-select form-select" style="text-align: right;">
+                                                                                            <optgroup id="carousel-select" label="This is a group">
+                                                                                                <option value="0" selected>0</option>
+                                                                                            </optgroup>
+                                                                                        </select><button id="update_z_setting_button" class="btn btn-primary" type="button">Update Z setting</button></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="text-center py-4">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-lg-3">
+                                <div class="col">
+                                    <p class="text-muted my-2">Copyright © 2023 Ghent University</p>
+                                </div>
+                                <div class="col"><img src="/assets/img/logo-woodlab.jpg" width="100px" /></div>
+                                <div class="col">
+                                    <ul class="list-inline my-2">
+                                        <li class="list-inline-item list-inline-item"><a class="link-secondary" href="#">Privacy Policy</a></li>
+                                        <li class="list-inline-item list-inline-item"><a class="link-secondary" href="#">Terms of Use</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/calibration_rest.js"></script>
+</body>
+
+</html>

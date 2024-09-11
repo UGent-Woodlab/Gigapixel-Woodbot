@@ -1,0 +1,51 @@
+{
+    "LASER": {
+        "LASER_IP": "192.168.1.104",
+        "UDP_PORT": 8888
+    },
+    "CNC": {
+        "CNC_URI": "ws://192.168.2.106:8765",
+        "MAX_DIM_X": 1000,
+        "MAX_DIM_Y": 595,
+        "MAX_DIM_Z": 110,
+        "MAX_F_SPEED": 3000
+    },
+    "DB": {
+        "CONN_STR": "mongodb://localhost:27017/",
+        "IMAGE_DB_PATH": "/image-document-store/db"
+    },
+    "CAMERA": {
+        "CAMERA_ACTIVE": "Canon EOS 6D",
+        "CAMERA_LIST": [
+            {
+                "CAMERA_NAME": "Teledyne DALSA Nano XL",
+                "CAMERA_TYPE": "GenICam",
+                "CAMERA_WIDTH": 9.216,
+                "CAMERA_WIDTH_CORRECTION": 7.3,
+                "CAMERA_DOF": 0.3,
+                "CAMERA_FOCUS": 52.077,
+                "SPACES": {
+                    "LASER_TO_CAMERA_X": 66.7,
+                    "LASER_TO_CAMERA_Y": 18.3,
+                    "BASE_LASER": 130
+                }
+            },
+            {
+                "CAMERA_NAME": "Canon EOS 6D",
+                "CAMERA_TYPE": "DSLR",
+                "CAMERA_WIDTH": 45,
+                "CAMERA_WIDTH_CORRECTION": 45,
+                "CAMERA_DOF": 30,
+                "CAMERA_FOCUS": 0,
+                "SPACES": {
+                    "LASER_TO_CAMERA_X": 66.7,
+                    "LASER_TO_CAMERA_Y": 18.3,
+                    "BASE_LASER": 130
+                }
+            }
+        ]
+    },
+    "IMAGE": {
+        "EXTENSION": "tiff"
+    }
+}

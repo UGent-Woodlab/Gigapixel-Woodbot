@@ -1,0 +1,142 @@
+\hypertarget{classlaser_1_1Laser}{}\doxysection{laser.\+Laser Class Reference}
+\label{classlaser_1_1Laser}\index{laser.Laser@{laser.Laser}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classlaser_1_1Laser_a26c97aa43a9e9f9c5157a1ea6ca61f95}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, L\+A\+S\+E\+R\+\_\+\+IP, U\+D\+P\+\_\+\+P\+O\+RT)
+\item 
+def \mbox{\hyperlink{classlaser_1_1Laser_ab6fb1ddd0a93187a5c87d6d0c283ce2f}{\+\_\+\+\_\+del\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classlaser_1_1Laser_a61dc3d0af9fca133a3f3823b2278b2b6}{connect}} (self)
+\item 
+def \mbox{\hyperlink{classlaser_1_1Laser_a12f16c591705a0cacdbec4e564a5fc0b}{add\+\_\+point\+\_\+history}} (self, d, timestamp)
+\item 
+def \mbox{\hyperlink{classlaser_1_1Laser_a705c538c2b15e72ab356581306887385}{get\+\_\+measure}} (self)
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a288fa4dbc237aad8ea69f3405f6b9fe1}\label{classlaser_1_1Laser_a288fa4dbc237aad8ea69f3405f6b9fe1}} 
+def {\bfseries add\+\_\+latest\+\_\+point} (self)
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a0cdb1119e747f061330a145cc46dd8e3}\label{classlaser_1_1Laser_a0cdb1119e747f061330a145cc46dd8e3}} 
+def {\bfseries reset\+\_\+history} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a9f24ec61c8d478628eaf94e21acdd443}\label{classlaser_1_1Laser_a9f24ec61c8d478628eaf94e21acdd443}} 
+{\bfseries L\+A\+S\+E\+R\+\_\+\+IP}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a20555493991d6f521125cd0031b45b57}\label{classlaser_1_1Laser_a20555493991d6f521125cd0031b45b57}} 
+{\bfseries U\+D\+P\+\_\+\+P\+O\+RT}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_ae0099b74d51b957eba023c533d022b3f}\label{classlaser_1_1Laser_ae0099b74d51b957eba023c533d022b3f}} 
+{\bfseries s}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a75d8a0a8a1db221a89f97cd9463ed2ff}\label{classlaser_1_1Laser_a75d8a0a8a1db221a89f97cd9463ed2ff}} 
+{\bfseries m}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_ae45b80dcc27aa4652be14ea8708e7aa1}\label{classlaser_1_1Laser_ae45b80dcc27aa4652be14ea8708e7aa1}} 
+{\bfseries last\+\_\+update}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_aad003c842585598589971a8dd7751d3e}\label{classlaser_1_1Laser_aad003c842585598589971a8dd7751d3e}} 
+{\bfseries h\+\_\+measure}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a21d220d2cefff3f6a200d20eb4dab955}\label{classlaser_1_1Laser_a21d220d2cefff3f6a200d20eb4dab955}} 
+{\bfseries thread\+\_\+measure}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a01fbc0cc8f48491e129c46507de25819}\label{classlaser_1_1Laser_a01fbc0cc8f48491e129c46507de25819}} 
+{\bfseries thread\+\_\+history}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a4d4967d8d95f36dad47b637accafab0b}\label{classlaser_1_1Laser_a4d4967d8d95f36dad47b637accafab0b}} 
+{\bfseries stop\+\_\+thread}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlaser_1_1Laser_a3c6eb3822924d2215625ba073e2d0fc4}\label{classlaser_1_1Laser_a3c6eb3822924d2215625ba073e2d0fc4}} 
+{\bfseries Measure} = namedtuple(\textquotesingle{}Measure\textquotesingle{},\textquotesingle{}Block\+ID Frame\+Type Reserve Num\+Frame Quality Sw\+Out Alarm\+Out Dist Meas\+Rate Exp\+Res R\+Dsec R\+Dus T\+Ssec T\+Sus\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A class setups and fetchs measurements from the laser sensor.
+
+Attributes:
+    LASER_IP (str): IP address of the laser sensor.
+    UDP_PORT (int): Port number of the laser sensor.
+    s (socket): Socket object used for UDP communication.
+    m (namedtuple): Latest measurement from the sensor.
+    h_measure (DataFrame): DataFrame containing historical measurement data.
+    thread (Thread): Thread object used for asynchronous data acquisition.
+    stop_thread (bool): Boolean value used to stop the thread.
+
+Methods:
+    __init__(self, LASER_IP, UDP_PORT): Initializes a Laser object.
+    __del__(self): Destructor method that stops the thread.
+    connect(self): Checks if the sensor is available and returns the status as a boolean.
+    add_point_history(self, d, timestamp): Adds a measurement point to the historical data.
+    get_measure(self): Updates the latest measurement attribute.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlaser_1_1Laser_a26c97aa43a9e9f9c5157a1ea6ca61f95}\label{classlaser_1_1Laser_a26c97aa43a9e9f9c5157a1ea6ca61f95}} 
+\index{laser.Laser@{laser.Laser}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!laser.Laser@{laser.Laser}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def laser.\+Laser.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{L\+A\+S\+E\+R\+\_\+\+IP,  }\item[{}]{U\+D\+P\+\_\+\+P\+O\+RT }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initializes a Laser object.
+
+Arguments:
+    LASER_IP (str): IP address of the laser sensor.
+    UDP_PORT (int): Port number of the laser sensor.\end{DoxyVerb}
+ \mbox{\Hypertarget{classlaser_1_1Laser_ab6fb1ddd0a93187a5c87d6d0c283ce2f}\label{classlaser_1_1Laser_ab6fb1ddd0a93187a5c87d6d0c283ce2f}} 
+\index{laser.Laser@{laser.Laser}!\_\_del\_\_@{\_\_del\_\_}}
+\index{\_\_del\_\_@{\_\_del\_\_}!laser.Laser@{laser.Laser}}
+\doxysubsubsection{\texorpdfstring{\_\_del\_\_()}{\_\_del\_\_()}}
+{\footnotesize\ttfamily def laser.\+Laser.\+\_\+\+\_\+del\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Destructor method that stops the thread.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlaser_1_1Laser_a12f16c591705a0cacdbec4e564a5fc0b}\label{classlaser_1_1Laser_a12f16c591705a0cacdbec4e564a5fc0b}} 
+\index{laser.Laser@{laser.Laser}!add\_point\_history@{add\_point\_history}}
+\index{add\_point\_history@{add\_point\_history}!laser.Laser@{laser.Laser}}
+\doxysubsubsection{\texorpdfstring{add\_point\_history()}{add\_point\_history()}}
+{\footnotesize\ttfamily def laser.\+Laser.\+add\+\_\+point\+\_\+history (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{d,  }\item[{}]{timestamp }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The function adds a history point to dataframe
+
+Arguments:
+    d: a float measured distance of the sensor
+    timestamp: the corresponding d measurement, also float
+
+Returns:
+    None
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classlaser_1_1Laser_a61dc3d0af9fca133a3f3823b2278b2b6}\label{classlaser_1_1Laser_a61dc3d0af9fca133a3f3823b2278b2b6}} 
+\index{laser.Laser@{laser.Laser}!connect@{connect}}
+\index{connect@{connect}!laser.Laser@{laser.Laser}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily def laser.\+Laser.\+connect (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This function checks if the sensor is available and returns the status as boolean
+
+Returns:
+    boolean: true if sensor is available, else false
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classlaser_1_1Laser_a705c538c2b15e72ab356581306887385}\label{classlaser_1_1Laser_a705c538c2b15e72ab356581306887385}} 
+\index{laser.Laser@{laser.Laser}!get\_measure@{get\_measure}}
+\index{get\_measure@{get\_measure}!laser.Laser@{laser.Laser}}
+\doxysubsubsection{\texorpdfstring{get\_measure()}{get\_measure()}}
+{\footnotesize\ttfamily def laser.\+Laser.\+get\+\_\+measure (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The function updates the class measure attribute
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+acquisition/acquisition-\/py/laser/laser.\+py\end{DoxyCompactItemize}

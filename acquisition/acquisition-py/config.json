@@ -1,0 +1,58 @@
+{
+  "LASER": {
+    "LASER_IP": "192.168.1.104",
+    "UDP_PORT": 8888
+  },
+  "CNC": {
+    "CNC_URI": "ws://192.168.2.106:8765",
+    "MAX_DIM_X": 1000,
+    "MAX_DIM_Y": 595,
+    "MAX_DIM_Z": 110,
+    "MAX_F_SPEED": 3000,
+    "START_SPEED": 80
+  },
+  "DB": {
+    "CONN_STR": "mongodb://localhost:27017/",
+    "IMAGE_DB_PATH": "/image-document-store/db"
+  },
+  "CAMERA": {
+    "CAMERA_ACTIVE": "Teledyne DALSA Nano XL",
+    "CAMERA_LIST": [
+      {
+        "CAMERA_NAME": "Teledyne DALSA Nano XL",
+        "CAMERA_TYPE": "GenICam",
+        "CAMERA_WIDTH": 9.216,
+        "CAMERA_HEIGHT": 9.216,
+        "CAMERA_WIDTH_CORRECTION": 7.3,
+        "CAMERA_HEIGHT_CORRECTION": 7.3,
+        "CAMERA_DOF": 0.3,
+        "CAMERA_FOCUS": 49.87,
+        "SPACES": {
+          "LASER_TO_CAMERA_X": 67.0,
+          "LASER_TO_CAMERA_Y": 19.2
+        }
+      },
+      {
+        "CAMERA_NAME": "Canon EOS 6D",
+        "CAMERA_TYPE": "DSLR",
+        "CAMERA_WIDTH": 36.5,
+        "CAMERA_HEIGHT": 57.5,
+        "CAMERA_WIDTH_CORRECTION": 36.5,
+        "CAMERA_HEIGHT_CORRECTION": 57.5,
+        "CAMERA_DOF": 1,
+        "CAMERA_FOCUS": 40.0,
+        "SPACES": {
+          "LASER_TO_CAMERA_X": 0.0,
+          "LASER_TO_CAMERA_Y": 0.0
+        }
+      }
+    ]
+  },
+  "IMAGE": {
+    "EXTENSION": "tiff"
+  },
+  "GenICam": {
+    "GENICAM_CTI_PATH": "/opt/cvb/drivers/genicam/libGevTL.cti"
+  },
+  "DSLR": {}
+}

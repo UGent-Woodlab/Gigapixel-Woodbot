@@ -1,0 +1,13 @@
+harvesters==1.4.0
+matplotlib
+numpy==1.25.2
+opencv_python==4.5.4.60
+pandas==1.5.3
+Pillow==9.4.0
+pygcode==0.2.1
+pymongo==4.3.3
+websockets
+flask==2.3.2
+flask-cors==3.0.10
+scipy
+gphoto2==2.4.0

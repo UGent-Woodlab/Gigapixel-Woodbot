@@ -1,0 +1,13 @@
+@startuml
+participant "Acquisition interface container" as acqui
+participant "LinuxCNC container" as cnc
+
+acqui <-> cnc : HTTP handshake
+acqui <-> cnc : upgrade connection to websocket
+
+cnc -> acqui : MDI ready
+
+acqui -> cnc ++ : send G-code 
+cnc -> cnc : run G-code
+cnc -> acqui -- : status & MDI ready
+@enduml

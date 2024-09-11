@@ -1,0 +1,154 @@
+\hypertarget{classCNCClient_1_1CNC}{}\doxysection{C\+N\+C\+Client.\+C\+NC Class Reference}
+\label{classCNCClient_1_1CNC}\index{CNCClient.CNC@{CNCClient.CNC}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classCNCClient_1_1CNC_acdd5fdd05a3c40389587829104f0606b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, C\+N\+C\+\_\+\+U\+RI, C\+N\+C\+\_\+\+M\+A\+X\+\_\+\+D\+IM, C\+N\+C\+\_\+\+M\+A\+X\+\_\+F)
+\item 
+def \mbox{\hyperlink{classCNCClient_1_1CNC_aafdfd2571dc54e11782a0ffb67fa1bff}{\+\_\+\+\_\+del\+\_\+\+\_\+}} (self)
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_a7507238a0885953d8957cd1298da7240}\label{classCNCClient_1_1CNC_a7507238a0885953d8957cd1298da7240}} 
+def {\bfseries reset\+\_\+history} (self)
+\item 
+def \mbox{\hyperlink{classCNCClient_1_1CNC_a02f36c22d8df014be7189e46c8e75a7e}{add\+\_\+position\+\_\+to\+\_\+history}} (self, pos, timestamp)
+\item 
+def \mbox{\hyperlink{classCNCClient_1_1CNC_a9891ba0bc1af014cc3e7330d51fb61d7}{run\+\_\+gcode}} (self, gcode)
+\item 
+def \mbox{\hyperlink{classCNCClient_1_1CNC_ad37fd1180e835a431ae2fdecf5258de8}{fetch\+\_\+position}} (self)
+\item 
+def \mbox{\hyperlink{classCNCClient_1_1CNC_a3fc83667b67fca8bf7ff7853b7767329}{move}} (self, X=0, Y=0, Z=0)
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_a0961909f9e8f233958fa5c44a905e183}\label{classCNCClient_1_1CNC_a0961909f9e8f233958fa5c44a905e183}} 
+def {\bfseries set\+\_\+speed} (self, p)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_adf75c7479dc2e06d920b6c2eec9de6de}\label{classCNCClient_1_1CNC_adf75c7479dc2e06d920b6c2eec9de6de}} 
+{\bfseries C\+N\+C\+\_\+\+U\+RI}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_ad4050b8887ab48af75c50dbde0a7cf07}\label{classCNCClient_1_1CNC_ad4050b8887ab48af75c50dbde0a7cf07}} 
+{\bfseries ws}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_ae9960ce6e0a453557b6754f90adbb861}\label{classCNCClient_1_1CNC_ae9960ce6e0a453557b6754f90adbb861}} 
+{\bfseries loop}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_aa4b8666982bc68ccb55d2d9455733344}\label{classCNCClient_1_1CNC_aa4b8666982bc68ccb55d2d9455733344}} 
+{\bfseries position}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_a2341c0de445cda8bf53a9ecb3951d1df}\label{classCNCClient_1_1CNC_a2341c0de445cda8bf53a9ecb3951d1df}} 
+{\bfseries h\+\_\+pos}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_ac7bd07e06b41939a19303e34b6b8c081}\label{classCNCClient_1_1CNC_ac7bd07e06b41939a19303e34b6b8c081}} 
+{\bfseries max\+\_\+F}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_a64ba843984b5706f07616290adf920e8}\label{classCNCClient_1_1CNC_a64ba843984b5706f07616290adf920e8}} 
+{\bfseries F}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_af377763347d93faf748d7f1dc57c22c2}\label{classCNCClient_1_1CNC_af377763347d93faf748d7f1dc57c22c2}} 
+{\bfseries x\+\_\+max}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_ad9172ef65a6c9ad0cd6eb5a03281812c}\label{classCNCClient_1_1CNC_ad9172ef65a6c9ad0cd6eb5a03281812c}} 
+{\bfseries y\+\_\+max}
+\item 
+\mbox{\Hypertarget{classCNCClient_1_1CNC_aa38ff846059eba76bec8b1503eaeb9d2}\label{classCNCClient_1_1CNC_aa38ff846059eba76bec8b1503eaeb9d2}} 
+{\bfseries z\+\_\+max}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A class to interact with a CNC machine using websockets.
+
+Attributes:
+    CNC_URI (str): the URI of the CNC machine
+    ws (websockets.client.WebSocketClientProtocol): the websocket connection to the CNC machine
+    loop (asyncio.AbstractEventLoop): the event loop used for asynchronous operations
+    position (list): the current position of the CNC machine
+    h_pos (pandas.DataFrame): a dataframe to keep a history of positions
+
+Methods:
+    __init__(self, CNC_URI): initializes a new instance of the CNC class
+    __del__(self): deconstructs the websocket connection
+    __async__disconnect(self): closes the websocket connection
+    __async__connect(self): connects to the CNC machine using a websocket
+    add_position_to_history(self, pos, timestamp): adds a position and timestamp to the position history dataframe
+    __async__run_gcode(self, gcode): sends GCode to the CNC machine and waits for a response
+    __async__fetch_position(self): fetches the current position of the CNC machine
+    run_gcode(self, gcode): runs GCode on the CNC machine
+    move(self, X=0, Y=0, Z=0): moves the CNC machine to a specified location
+    fetch_position(self): fetches the current position of the CNC machine and adds it to the position history dataframe
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCNCClient_1_1CNC_acdd5fdd05a3c40389587829104f0606b}\label{classCNCClient_1_1CNC_acdd5fdd05a3c40389587829104f0606b}} 
+\index{CNCClient.CNC@{CNCClient.CNC}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!CNCClient.CNC@{CNCClient.CNC}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def C\+N\+C\+Client.\+C\+N\+C.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{C\+N\+C\+\_\+\+U\+RI,  }\item[{}]{C\+N\+C\+\_\+\+M\+A\+X\+\_\+\+D\+IM,  }\item[{}]{C\+N\+C\+\_\+\+M\+A\+X\+\_\+F }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Initializes a new instance of the CNC class.
+
+Arguments:
+     CNC_URI (str): the URI of the CNC machine
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classCNCClient_1_1CNC_aafdfd2571dc54e11782a0ffb67fa1bff}\label{classCNCClient_1_1CNC_aafdfd2571dc54e11782a0ffb67fa1bff}} 
+\index{CNCClient.CNC@{CNCClient.CNC}!\_\_del\_\_@{\_\_del\_\_}}
+\index{\_\_del\_\_@{\_\_del\_\_}!CNCClient.CNC@{CNCClient.CNC}}
+\doxysubsubsection{\texorpdfstring{\_\_del\_\_()}{\_\_del\_\_()}}
+{\footnotesize\ttfamily def C\+N\+C\+Client.\+C\+N\+C.\+\_\+\+\_\+del\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Deconstructor -> Closes the websocket connection.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCNCClient_1_1CNC_a02f36c22d8df014be7189e46c8e75a7e}\label{classCNCClient_1_1CNC_a02f36c22d8df014be7189e46c8e75a7e}} 
+\index{CNCClient.CNC@{CNCClient.CNC}!add\_position\_to\_history@{add\_position\_to\_history}}
+\index{add\_position\_to\_history@{add\_position\_to\_history}!CNCClient.CNC@{CNCClient.CNC}}
+\doxysubsubsection{\texorpdfstring{add\_position\_to\_history()}{add\_position\_to\_history()}}
+{\footnotesize\ttfamily def C\+N\+C\+Client.\+C\+N\+C.\+add\+\_\+position\+\_\+to\+\_\+history (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pos,  }\item[{}]{timestamp }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Adds a position and timestamp to the position history dataframe.
+
+Arguments:
+    pos (list): the position to add
+    timestamp (float): the timestamp to add
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classCNCClient_1_1CNC_ad37fd1180e835a431ae2fdecf5258de8}\label{classCNCClient_1_1CNC_ad37fd1180e835a431ae2fdecf5258de8}} 
+\index{CNCClient.CNC@{CNCClient.CNC}!fetch\_position@{fetch\_position}}
+\index{fetch\_position@{fetch\_position}!CNCClient.CNC@{CNCClient.CNC}}
+\doxysubsubsection{\texorpdfstring{fetch\_position()}{fetch\_position()}}
+{\footnotesize\ttfamily def C\+N\+C\+Client.\+C\+N\+C.\+fetch\+\_\+position (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}same as __async__fetch_position but then sync
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classCNCClient_1_1CNC_a3fc83667b67fca8bf7ff7853b7767329}\label{classCNCClient_1_1CNC_a3fc83667b67fca8bf7ff7853b7767329}} 
+\index{CNCClient.CNC@{CNCClient.CNC}!move@{move}}
+\index{move@{move}!CNCClient.CNC@{CNCClient.CNC}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily def C\+N\+C\+Client.\+C\+N\+C.\+move (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{X = {\ttfamily 0},  }\item[{}]{Y = {\ttfamily 0},  }\item[{}]{Z = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Send a gcode command to cnc to move the machine to (X, Y, Z)
+
+Arguments:
+    X (float) : x-coordinate
+    Y (float) : y-coordinate
+    Z (float) : z-coordinate
+
+Returns:
+    str: Returns current position of the macine in string format.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classCNCClient_1_1CNC_a9891ba0bc1af014cc3e7330d51fb61d7}\label{classCNCClient_1_1CNC_a9891ba0bc1af014cc3e7330d51fb61d7}} 
+\index{CNCClient.CNC@{CNCClient.CNC}!run\_gcode@{run\_gcode}}
+\index{run\_gcode@{run\_gcode}!CNCClient.CNC@{CNCClient.CNC}}
+\doxysubsubsection{\texorpdfstring{run\_gcode()}{run\_gcode()}}
+{\footnotesize\ttfamily def C\+N\+C\+Client.\+C\+N\+C.\+run\+\_\+gcode (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{gcode }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}same as __async__run_gcode but then sync
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+acquisition/acquisition-\/py/cnc/C\+N\+C\+Client.\+py\end{DoxyCompactItemize}
