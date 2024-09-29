@@ -51,7 +51,7 @@ A graphical web application has been developed to control the robot, calibrate i
 
 ## Workflow
 
-![Domain diagram of the software architecture of the Gigapixel Woodbot. Each rectangle represents a container. The numbers at the arrows represent the communication between containers](/home/galileog/Documents/Gigapixel-Woodbot/figures/domain_diagram.jpg)
+![Domain diagram of the software architecture of the Gigapixel Woodbot. Each rectangle represents a container. The numbers at the arrows represent the communication between containers](./figures/domain_diagram.jpg)
 
 The figure above shows the domain diagram of the software, which makes use of the Docker container. Docker is an open source platform used to package software applications into containers, which are lightweight and portable environments in which applications can run, with all its dependencies regardless of the environment in which it is placed. Communication between the different containers is indicated by arrows. 
 
@@ -93,7 +93,7 @@ Build the project from source:
 
 1. Clone the Gigapixel-Woodbot repository:
 ```sh
-❯ git clone ??
+❯ git clone https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot.git
 ```
 
 2. Navigate to the project directory:
