@@ -45,8 +45,7 @@ This repository contains the Gigapixel Woodbot, a custom-built, modular imaging 
 
 The images are captured in both the X and Y directions with small overlaps, and are combined using extended focus imaging (EFI) to correct for vignetting and depth. A mosaic stitching algorithm merges these images into a seamless gigapixel image. The modularity of the system, due to its container-based approach, allows for the integration of other camera systems and sensors, optimizing image quality and enabling further research applications in wood and wood technology.
 
-A graphical web application has been developed to control the robot, calibrate its components, and initiate multiple scans, allowing for autonomous operation. This feature makes the system user-friendly for researchers who can scan several objects or large surfaces without manual intervention. The system is ideal for digitizing large collections of wood samples, such as increment cores and wood discs, similar to commercial solutions like GIGAmacro and Hirox. The independence of the motion control from the imaging process means that a variety of contact or non-contact sensors can be added to the toolhead, providing flexibility for future research needs. 
-
+A graphical web application has been developed to control the robot, calibrate its components, and initiate multiple scans, allowing for autonomous operation. This feature makes the system user-friendly for researchers who can scan several objects or large surfaces without manual intervention. The system is ideal for digitizing large collections of wood samples, such as increment cores and wood discs, similar to commercial solutions like GIGAmacro and Hirox.
 ---
 
 ## Workflow
