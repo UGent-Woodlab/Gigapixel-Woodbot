@@ -47,7 +47,7 @@ This repository contains the all the information and software about our own cust
 
 The images are captured in both the X and Y directions with small overlaps, and are combined using extended focus imaging (EFI) to correct for vignetting and depth. A mosaic stitching algorithm merges these images into a seamless gigapixel image. The modularity of the system, due to its container-based approach, allows for the integration of other camera systems and sensors, optimizing image quality and enabling further research applications in wood and wood technology.
 
-A graphical web application has been developed to control the robot, calibrate its components, and initiate multiple scans, allowing for autonomous operation. This feature makes the system user-friendly for researchers who can scan several objects or large surfaces without manual intervention. The system is ideal for digitizing large collections of wood samples, such as increment cores and wood discs, similar to commercial solutions like GIGAmacro and Hirox. The independence of the motion control from the imaging process means that a variety of contact or non-contact sensors can be added to the toolhead, providing flexibility for future research needs. 
+A graphical web application has been developed to control the robot, calibrate its components, and initiate multiple scans, allowing for autonomous operation. This feature makes the system user-friendly for researchers who can scan several objects or large surfaces without manual intervention. The system is ideal for digitizing large collections of wood samples, such as increment cores and wood discs, similar to commercial solutions like GIGAmacro and Hirox.
 
 ---
 
@@ -79,7 +79,7 @@ With these components and technical drawings, you’ll be well on your way to bu
 
 ## Software overview
 
-![Domain diagram of the software architecture of the Gigapixel Woodbot. Each rectangle represents a container. The numbers at the arrows represent the communication between containers](/home/galileog/Documents/Gigapixel-Woodbot/figures/domain_diagram.jpg)
+![Domain diagram of the software architecture of the Gigapixel Woodbot. Each rectangle represents a container. The numbers at the arrows represent the communication between containers](./figures/domain_diagram.jpg)
 
 The figure above shows the domain diagram of the software, which makes use of the Docker container. Docker is an open source platform used to package software applications into containers, which are lightweight and portable environments in which applications can run, with all its dependencies regardless of the environment in which it is placed. Communication between the different containers is indicated by arrows. 
 
