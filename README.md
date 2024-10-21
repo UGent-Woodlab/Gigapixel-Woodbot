@@ -218,7 +218,7 @@ TODO
 
 ##  License
 
-This project is protected under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) License. For more details, refer to the [LICENSE](https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/LICENSE) file.
+This project is protected under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) License. For more details, refer to the [LICENSE]([https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/LICENSE](https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/blob/main/LICENSE)) file.
 
 ---
 
