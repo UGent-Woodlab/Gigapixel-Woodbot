@@ -208,13 +208,15 @@ In addition, the camera must be positioned along the Z-axis such that the object
 
 ## Cite our work
 
-You can find the paper where the entire system is described [here](http://google.com), our cite our work with the following bibtex snippet:
+You can find the paper where the entire system is described [here](http://google.com), or cite our work with the following bibtex snippet:
 
 ```tex
 TODO
 ```
 
-The software for analysing the images can be found [here](), the trained YOLOv8 model and training data can be found [here]([http://google.com](https://doi.org/10.5281/zenodo.14604996), and part of the images can be found [here](https://doi.org/10.5281/zenodo.14627909)
+The software for analysing the images can be found [here](https://github.com/UGent-Woodlab/High-throughput-pipeline-yolov8), the trained YOLOv8 model and training data can be found [here](https://doi.org/10.5281/zenodo.14604996), and part of the images can be found [here](https://doi.org/10.5281/zenodo.14627909).
+
+When using any of the software, also cite the proper Zenodo DOI related to the releases of the software.
 
 ---
 
