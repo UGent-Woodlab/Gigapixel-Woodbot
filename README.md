@@ -63,15 +63,15 @@ If you're interested in creating your own Gigapixel Woodbot, we've compiled the 
 | Ring Light       | CCS HPR2-75SW-IU                                  |
 | Laser Sensor     | Baumer OM70-11220191                              |
 
-You can access the technical drawing of the CNC tool head assembly [here](https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/Assembly_of_gigapixel_woodbot_toolhead.pdf).
+You can access the technical drawing of the CNC tool head assembly [here](https://github.com/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/Assembly_of_gigapixel_woodbot_toolhead.pdf).
 
 To mount all the components together, custom mounts are required. Below are the technical drawings for each part:
 
 | Mount Type             | Link to Technical Drawing                                    |
 | ---------------------- | ------------------------------------------------------------ |
-| CNC to Camera (Part 1) | [Download Drawing](https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/houder_cnc_to_camera_part1_2d_drawing.pdf) |
-| CNC to Camera (Part 2) | [Download Drawing](https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/houder_cnc_to_camera_part2_2d_drawing.pdf) |
-| CNC to Laser Sensor    | [Download Drawing](https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/CNC_to_laser_mount_gigapixel_woodbot_part.pdf) |
+| CNC to Camera (Part 1) | [Download Drawing](https://github.com/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/houder_cnc_to_camera_part1_2d_drawing.pdf) |
+| CNC to Camera (Part 2) | [Download Drawing](https://github.com/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/houder_cnc_to_camera_part2_2d_drawing.pdf) |
+| CNC to Laser Sensor    | [Download Drawing](https://github.com/UGent-Woodlab/Gigapixel-Woodbot/blob/main/figures/Technical%20parts/CNC_to_laser_mount_gigapixel_woodbot_part.pdf) |
 
 With these components and technical drawings, you’ll be well on your way to building your very own Gigapixel Woodbot. Happy building!
 
@@ -121,7 +121,7 @@ Build the project from source:
 
 1. Clone the Gigapixel-Woodbot repository:
 ```sh
-❯ git clone https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot.git
+❯ git clone https://github.com/UGent-Woodlab/Gigapixel-Woodbot.git
 ```
 
 2. Navigate to the project directory:
@@ -217,7 +217,7 @@ TODO
 ---
 
 ##  License
-This project is protected under the [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/) License. For more details, refer to the [LICENSE](https://github.ugent.be/UGent-Woodlab/Gigapixel-Woodbot/blob/main/LICENSE) file.
+This project is protected under the [GNU AGPLv3](https://choosealicense.com/licenses/agpl-3.0/) License. For more details, refer to the [LICENSE](https://github.com/UGent-Woodlab/Gigapixel-Woodbot/blob/main/LICENSE) file.
 
 ---
 
