@@ -30,6 +30,16 @@
 <br>
 
 #####  Contributors
+Simon Vansuyt[^WOODLAB][^AIRO];
+[Francis Wyffels![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5491-8349)[^AIRO];
+[Olivier Pieters![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5473-4849)[^AIRO];
+[Pierre Kibleur![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-0078-4680)[^WOODLAB][^UGCT];
+[Maxime Dekegeleer![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2096-4061)[^WOODLAB];
+[Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^WOODLAB];
+[Ruben De Blaere![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5736-9701)[^WOODLAB][^AFRM];
+[Louis Verschuren![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3102-4588)[^WOODLAB][^FORNALAB];
+
+<!--
 [Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^aut][^cre][^WOODLAB];
 [Louis Verschuren![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3102-4588)[^aut][^WOODLAB][^FORNALAB];
 [Ruben De Blaere![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5736-9701)[^aut][^WOODLAB][^AFRM];
@@ -42,9 +52,8 @@ Simon Vansuyt[^aut][^WOODLAB][^AIRO];
 [Hans Beeckman![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0001-8954-6277)[^aut][^AFRM];
 [Joris Van Acker![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-8961-0176)[^aut][^WOODLAB];
 [Francis wyffels![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5491-8349)[^aut][^AIRO];
+-->
 
-[^aut]: author
-[^cre]: contact person
 [^WOODLAB]: UGent-Woodlab, Department of Environment, Ghent University, Coupure Links 653, Gent, 9000, Belgium
 [^FORNALAB]: ForNaLab, Department of Environment, Ghent University, Geraardsbergsesteenweg 267, Merelbeke (Gontrode), 9090, Belgium
 [^AFRM]: Service of Wood Biology, Royal Museum for Central Africa, Leuvensesteenweg 13, Tervuren, 3080, Belgium
