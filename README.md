@@ -246,9 +246,9 @@ You can find the paper where the entire system is described [here](TO DO), or ci
 TODO
 ```
 
-The software for analysing the images can be found [here](https://github.com/UGent-Woodlab/High-throughput-pipeline-yolov8), the trained YOLOv8 model and training data can be found [here](https://doi.org/10.5281/zenodo.14604996), and part of the images can be found [here](https://doi.org/10.5281/zenodo.14627909).
+The software for analysing the images can be found [here](https://github.com/UGent-Woodlab/High-throughput-pipeline-yolov8), the trained YOLOv8 model and training data can be found [here](https://doi.org/10.5281/zenodo.14604996), the increment core images can be found [here](https://doi.org/10.5281/zenodo.14627909) and the disk images [here](TO DO).
 
-When using any of the software, also cite the proper Zenodo DOI () related to the releases of the software.
+When using any of the software, also cite the proper Zenodo DOI (TO DO) related to the releases of the software.
 
 ---
 
