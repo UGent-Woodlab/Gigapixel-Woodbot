@@ -37,7 +37,7 @@ Simon Vansuyt[^WOODLAB][^AIRO];
 [Ruben De Blaere![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5736-9701)[^WOODLAB][^AFRM];
 [Louis Verschuren![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3102-4588)[^WOODLAB][^FORNALAB];
 [Francis wyffels![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5491-8349)[^AIRO];
-[Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^WOODLAB];
+[Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^WOODLAB]
 
 <!--
 [Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^aut][^cre][^WOODLAB];
@@ -240,7 +240,7 @@ In addition, the camera must be positioned along the Z-axis such that the object
 
 ## Cite our work
 
-You can find the paper where the entire system is described [here](http://google.com), or cite our work with the following bibtex snippet:
+You can find the paper where the entire system is described [here](TO DO), or cite our work with the following bibtex snippet:
 
 ```tex
 TODO
