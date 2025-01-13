@@ -31,13 +31,13 @@
 
 #####  Contributors
 Simon Vansuyt[^WOODLAB][^AIRO];
-[Francis wyffels![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5491-8349)[^AIRO];
 [Olivier Pieters![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5473-4849)[^AIRO];
 [Pierre Kibleur![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-0078-4680)[^WOODLAB][^UGCT];
 [Maxime Dekegeleer![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2096-4061)[^WOODLAB];
-[Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^WOODLAB];
 [Ruben De Blaere![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5736-9701)[^WOODLAB][^AFRM];
 [Louis Verschuren![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-3102-4588)[^WOODLAB][^FORNALAB];
+[Francis wyffels![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5491-8349)[^AIRO];
+[Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^WOODLAB];
 
 <!--
 [Jan Van den Bulcke![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-2939-5408)[^aut][^cre][^WOODLAB];
