@@ -240,7 +240,7 @@ In addition, the camera must be positioned along the Z-axis such that the object
 
 ## Cite our work
 
-You can find the paper where the entire system is described [here](http://doi.org/10.1186/s13007-025-01330-7), or cite our work with the following bibtex snippet:
+You can find the paper where the entire system is described [here](https://doi.org/10.1186/s13007-025-01330-7), or cite our work with the following bibtex snippet:
 
 ```tex
 TODO
