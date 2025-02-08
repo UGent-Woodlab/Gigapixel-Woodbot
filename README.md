@@ -243,7 +243,19 @@ In addition, the camera must be positioned along the Z-axis such that the object
 You can find the paper where the entire system is described [here](https://doi.org/10.1186/s13007-025-01330-7), or cite our work with the following bibtex snippet:
 
 ```tex
-TODO
+@article{VandenBulcke2025,
+  title = {Enabling high-throughput quantitative wood anatomy through a dedicated pipeline},
+  volume = {21},
+  ISSN = {1746-4811},
+  url = {http://dx.doi.org/10.1186/s13007-025-01330-7},
+  DOI = {10.1186/s13007-025-01330-7},
+  number = {1},
+  journal = {Plant Methods},
+  publisher = {Springer Science and Business Media LLC},
+  author = {Van den Bulcke,  Jan and Verschuren,  Louis and De Blaere,  Ruben and Vansuyt,  Simon and Dekegeleer,  Maxime and Kibleur,  Pierre and Pieters,  Olivier and De Mil,  Tom and Hubau,  Wannes and Beeckman,  Hans and Van Acker,  Joris and wyffels,  Francis},
+  year = {2025},
+  month = feb 
+}
 ```
 
 The software for analysing the images can be found [here](https://github.com/UGent-Woodlab/High-throughput-pipeline-yolov8), the trained YOLOv8 model and training data can be found [here](https://doi.org/10.5281/zenodo.14604996), the increment core images can be found [here](https://doi.org/10.5281/zenodo.14627909) and the disk images [here](https://doi.org/10.6019/S-BIAD1574).
